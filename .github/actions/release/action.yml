@@ -30,7 +30,7 @@ runs:
       with:
         artifacts: |
           ./release/*.apk
-        name: Continuous Release
+        name: APK Collection
         tag: all
         bodyFile: ${{ github.workspace }}-CHANGELOG.txt
         allowUpdates: true
