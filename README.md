@@ -1,6 +1,6 @@
 <div align="center">
 
-# <img src="assets/icons/forge.svg" width="32" height="32" alt="Forge" /> APK Forge
+# <picture><source srcset="assets/icons/forge.svg"><img src="assets/icons/forge.svg" width="32" height="32" alt="Forge" /></picture> APK Forge
 
 **Automated, continuously updated Android applications patched with modern Morphe & LSPatch frameworks.**
 
@@ -11,10 +11,13 @@
 </div>
 
 <p align="center">
-  <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  <picture>
+    <source srcset="assets/divider.svg">
+    <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  </picture>
 </p>
 
-## <img src="assets/icons/workflow.svg" width="22" height="22" alt="Workflow" /> How This Repository Works
+## <picture><source srcset="assets/icons/workflow.svg"><img src="assets/icons/workflow.svg" width="22" height="22" alt="Workflow" /></picture> How This Repository Works
 
 > [!NOTE]
 > ### Unified APK Collection
@@ -27,19 +30,25 @@
 > To sign in and use **YouTube**, **YouTube Music**, or **Google Photos**, you must install [MicroG RE](https://github.com/MorpheApp/MicroG-RE/releases/latest) on your device.
 
 <p align="center">
-  <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  <picture>
+    <source srcset="assets/divider.svg">
+    <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  </picture>
 </p>
 
-## <img src="assets/icons/compass.svg" width="22" height="22" alt="Navigation" /> Quick Navigation
+## <picture><source srcset="assets/icons/compass.svg"><img src="assets/icons/compass.svg" width="22" height="22" alt="Navigation" /></picture> Quick Navigation
 
 | [Media & Streaming](#media--streaming) | [Social & Messaging](#social--messaging) | [Web & Input](#web--input) | [Privacy & Utilities](#privacy--utilities) | [Architecture Guide](#architecture-guide) | [FAQ](#frequently-asked-questions) |
 |---|---|---|---|---|---|
 
 <p align="center">
-  <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  <picture>
+    <source srcset="assets/divider.svg">
+    <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  </picture>
 </p>
 
-## <img src="assets/icons/media.svg" width="22" height="22" alt="Media" /> Media & Streaming
+## <picture><source srcset="assets/icons/media.svg"><img src="assets/icons/media.svg" width="22" height="22" alt="Media" /></picture> Media & Streaming
 
 | Application | Patch Source | Architecture | Min Android | Direct Download | Notes |
 |:---|:---|:---|:---:|:---:|:---|
@@ -48,10 +57,13 @@
 | **TikTok** | [SysAdminDoc/hushfeed](https://github.com/SysAdminDoc/hushfeed) | **Dual-Arch (`arm64-v8a` + `v7a`)** | Android 6.0+ | [Download APK](../../releases/download/all/tiktok-dual-arch-hushfeed.apk) | Removes sponsored posts & ads, bypasses regional download blocks, playback speed adjustments. |
 
 <p align="center">
-  <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  <picture>
+    <source srcset="assets/divider.svg">
+    <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  </picture>
 </p>
 
-## <img src="assets/icons/social.svg" width="22" height="22" alt="Social" /> Social & Messaging
+## <picture><source srcset="assets/icons/social.svg"><img src="assets/icons/social.svg" width="22" height="22" alt="Social" /></picture> Social & Messaging
 
 | Application | Patch Source | Architecture | Min Android | Direct Download | Notes |
 |:---|:---|:---|:---:|:---:|:---|
@@ -63,10 +75,13 @@
 | **Discord** | [revenge-mod/revenge-xposed](https://github.com/revenge-mod/revenge-xposed) | **All Architectures (Universal)** | Android 7.0+ | [Download APK](../../releases/download/all/discord-universal-revenge.apk) | Patched via LSPatch. Plugin support, custom themes, enhanced client functionality. |
 
 <p align="center">
-  <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  <picture>
+    <source srcset="assets/divider.svg">
+    <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  </picture>
 </p>
 
-## <img src="assets/icons/web.svg" width="22" height="22" alt="Web" /> Web & Input
+## <picture><source srcset="assets/icons/web.svg"><img src="assets/icons/web.svg" width="22" height="22" alt="Web" /></picture> Web & Input
 
 | Application | Patch Source | Architecture | Min Android | Direct Download | Notes |
 |:---|:---|:---|:---:|:---:|:---|
@@ -75,10 +90,13 @@
 | **Gboard** | [jasonwu1994/Gboard-patches](https://github.com/jasonwu1994/Gboard-patches) | **Arm64-v8a** | Android 10+ | [Download APK](../../releases/download/all/gboard-arm64-v8a-jasonwu1994.apk) | Clipboard upgrades, custom themes & blur, toolbar shortcuts, OCR scanning, flag editor. |
 
 <p align="center">
-  <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  <picture>
+    <source srcset="assets/divider.svg">
+    <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  </picture>
 </p>
 
-## <img src="assets/icons/privacy.svg" width="22" height="22" alt="Privacy" /> Privacy & Utilities
+## <picture><source srcset="assets/icons/privacy.svg"><img src="assets/icons/privacy.svg" width="22" height="22" alt="Privacy" /></picture> Privacy & Utilities
 
 | Application | Patch Source | Architecture | Min Android | Direct Download | Notes |
 |:---|:---|:---|:---:|:---:|:---|
@@ -88,10 +106,13 @@
 | **Google Photos** | [Akash-Sriram/morphe-google-photos](https://github.com/Akash-Sriram/morphe-google-photos) | **Arm64-v8a** | Android 7.0+ | [Download APK](../../releases/download/all/google-photos-arm64-v8a-akash-sriram.apk) | Unlimited backup spoofing, magic editor unlocking. Requires MicroG. |
 
 <p align="center">
-  <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  <picture>
+    <source srcset="assets/divider.svg">
+    <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  </picture>
 </p>
 
-## <img src="assets/icons/cpu.svg" width="22" height="22" alt="Architecture" /> Architecture Guide
+## <picture><source srcset="assets/icons/cpu.svg"><img src="assets/icons/cpu.svg" width="22" height="22" alt="Architecture" /></picture> Architecture Guide
 
 To ensure you download the build that works best on your device:
 
@@ -105,10 +126,13 @@ To ensure you download the build that works best on your device:
 > **No x86, x86_64, or stripped APK-Lite builds:** To prevent flooding the release page and eliminate slow CI build times, legacy desktop emulators (`x86`) and aggressive split-strip variants have been removed.
 
 <p align="center">
-  <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  <picture>
+    <source srcset="assets/divider.svg">
+    <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  </picture>
 </p>
 
-## <img src="assets/icons/help.svg" width="22" height="22" alt="FAQ" /> Frequently Asked Questions
+## <picture><source srcset="assets/icons/help.svg"><img src="assets/icons/help.svg" width="22" height="22" alt="FAQ" /></picture> Frequently Asked Questions
 
 <details>
 <summary><b>1. Can I install updates directly over my current patched app without uninstalling?</b></summary>
@@ -135,10 +159,13 @@ Navigate to the <a href="../../actions/workflows/manual-patch.yml">Actions tab &
 </details>
 
 <p align="center">
-  <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  <picture>
+    <source srcset="assets/divider.svg">
+    <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
+  </picture>
 </p>
 
-## <img src="assets/icons/scale.svg" width="22" height="22" alt="Disclaimer" /> Disclaimer & Credits
+## <picture><source srcset="assets/icons/scale.svg"><img src="assets/icons/scale.svg" width="22" height="22" alt="Disclaimer" /></picture> Disclaimer & Credits
 
 This project does not host, modify, or distribute proprietary code directly within this Git repository. All modifications are applied at build time using open-source patch bundles and CLI frameworks.
 
