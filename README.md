@@ -1,6 +1,6 @@
 <div align="center">
 
-# <img src="assets/icons/forge.svg" width="32" height="32" style="vertical-align: -4px;" alt="Forge" /> APK Forge
+# <img src="assets/icons/forge.svg" width="32" height="32" alt="Forge" /> APK Forge
 
 **Automated, continuously updated Android applications patched with modern Morphe & LSPatch frameworks.**
 
@@ -14,7 +14,7 @@
   <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
 </p>
 
-## <img src="assets/icons/workflow.svg" width="22" height="22" style="vertical-align: -3px;" alt="Workflow" /> How This Repository Works
+## <img src="assets/icons/workflow.svg" width="22" height="22" alt="Workflow" /> How This Repository Works
 
 > [!NOTE]
 > ### Unified APK Collection
@@ -30,7 +30,7 @@
   <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
 </p>
 
-## <img src="assets/icons/compass.svg" width="22" height="22" style="vertical-align: -3px;" alt="Navigation" /> Quick Navigation
+## <img src="assets/icons/compass.svg" width="22" height="22" alt="Navigation" /> Quick Navigation
 
 | [Media & Streaming](#media--streaming) | [Social & Messaging](#social--messaging) | [Web & Input](#web--input) | [Privacy & Utilities](#privacy--utilities) | [Architecture Guide](#architecture-guide) | [FAQ](#frequently-asked-questions) |
 |---|---|---|---|---|---|
@@ -39,7 +39,7 @@
   <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
 </p>
 
-## <img src="assets/icons/media.svg" width="22" height="22" style="vertical-align: -3px;" alt="Media" /> Media & Streaming
+## <img src="assets/icons/media.svg" width="22" height="22" alt="Media" /> Media & Streaming
 
 | Application | Patch Source | Architecture | Min Android | Direct Download | Notes |
 |:---|:---|:---|:---:|:---:|:---|
@@ -51,7 +51,7 @@
   <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
 </p>
 
-## <img src="assets/icons/social.svg" width="22" height="22" style="vertical-align: -3px;" alt="Social" /> Social & Messaging
+## <img src="assets/icons/social.svg" width="22" height="22" alt="Social" /> Social & Messaging
 
 | Application | Patch Source | Architecture | Min Android | Direct Download | Notes |
 |:---|:---|:---|:---:|:---:|:---|
@@ -66,7 +66,7 @@
   <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
 </p>
 
-## <img src="assets/icons/web.svg" width="22" height="22" style="vertical-align: -3px;" alt="Web" /> Web & Input
+## <img src="assets/icons/web.svg" width="22" height="22" alt="Web" /> Web & Input
 
 | Application | Patch Source | Architecture | Min Android | Direct Download | Notes |
 |:---|:---|:---|:---:|:---:|:---|
@@ -78,7 +78,7 @@
   <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
 </p>
 
-## <img src="assets/icons/privacy.svg" width="22" height="22" style="vertical-align: -3px;" alt="Privacy" /> Privacy & Utilities
+## <img src="assets/icons/privacy.svg" width="22" height="22" alt="Privacy" /> Privacy & Utilities
 
 | Application | Patch Source | Architecture | Min Android | Direct Download | Notes |
 |:---|:---|:---|:---:|:---:|:---|
@@ -91,7 +91,7 @@
   <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
 </p>
 
-## <img src="assets/icons/cpu.svg" width="22" height="22" style="vertical-align: -3px;" alt="Architecture" /> Architecture Guide
+## <img src="assets/icons/cpu.svg" width="22" height="22" alt="Architecture" /> Architecture Guide
 
 To ensure you download the build that works best on your device:
 
@@ -108,7 +108,7 @@ To ensure you download the build that works best on your device:
   <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
 </p>
 
-## <img src="assets/icons/help.svg" width="22" height="22" style="vertical-align: -3px;" alt="FAQ" /> Frequently Asked Questions
+## <img src="assets/icons/help.svg" width="22" height="22" alt="FAQ" /> Frequently Asked Questions
 
 <details>
 <summary><b>1. Can I install updates directly over my current patched app without uninstalling?</b></summary>
@@ -138,10 +138,11 @@ Navigate to the <a href="../../actions/workflows/manual-patch.yml">Actions tab &
   <img src="assets/divider.svg" width="100%" height="4" alt="divider" />
 </p>
 
-## ⚖️ Disclaimer & Credits
+## <img src="assets/icons/scale.svg" width="22" height="22" alt="Disclaimer" /> Disclaimer & Credits
 
 This project does not host, modify, or distribute proprietary code directly within this Git repository. All modifications are applied at build time using open-source patch bundles and CLI frameworks.
 
-- [Morphe](https://github.com/MorpheApp) & [ReVanced](https://github.com/ReVanced) for patch frameworks.
+- [fiorenmas](https://github.com/fiorenmas) for the foundational workflow architecture, CI automation, and repository template that this project streamlined.
+- [Morphe](https://github.com/MorpheApp) & [ReVanced](https://github.com/ReVanced) for patch and patcher frameworks.
 - [dh6k](https://github.com/dh6k/morphe-patches), [SysAdminDoc](https://github.com/SysAdminDoc), [hxreborn](https://github.com/hxreborn/morphe-patches), [crimera](https://github.com/crimera), [browzomje](https://github.com/browzomje), [Akash-Sriram](https://github.com/Akash-Sriram), [jasonwu1994](https://github.com/jasonwu1994), and [revenge-mod](https://github.com/revenge-mod) for patch authoring and maintenance.
 - All trademarks and brand names belong to their respective copyright holders.
