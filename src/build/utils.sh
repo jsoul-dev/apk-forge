@@ -851,8 +851,8 @@ split_editor() {
 
 #################################################
 
-archs=("arm64-v8a" "armeabi-v7a" "x86_64" "x86")
-libs=("armeabi-v7a x86_64 x86" "arm64-v8a x86_64 x86" "armeabi-v7a arm64-v8a x86" "armeabi-v7a arm64-v8a x86_64")
+archs=("arm64-v8a" "armeabi-v7a")
+libs=("armeabi-v7a" "arm64-v8a")
 
 # Remove unused architectures directly
 apk_editor() {
