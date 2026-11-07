@@ -12,7 +12,7 @@ photos_dl() {
 	get_patches_key "google-photos-morphe"
 	near_version="1"
 	get_apk "com.google.android.apps.photos" "google-photos-arm64-v8a" "bundle" "arm64-v8a"
-	patch "google-photos-arm64-v8a" "google-photos"
+	patch "google-photos-arm64-v8a" "google-photos" "google-photos-arm64-v8a-akash-sriram"
 }
 
 1

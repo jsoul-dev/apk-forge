@@ -11,7 +11,7 @@ browzomje_dl() {
 	browzomje_dl
 	get_patches_key "pinterest-browzomje"
 	get_apk "com.pinterest" "pinterest" "apk"
-	patch "pinterest" "browzomje"
+	patch "pinterest" "browzomje" "pinterest-universal-browzomje"
 }
 
 1

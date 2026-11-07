@@ -12,7 +12,7 @@ morphe_dl() {
 	morphe_dl
 	get_patches_key "youtube-morphe"
 	get_apk "com.google.android.youtube" "youtube" "apk"
-	patch "youtube" "morphe"
+	patch "youtube" "morphe" "youtube-universal-morphe"
 }
 
 # 2: Patch YouTube Music (arm64-v8a)
@@ -20,7 +20,7 @@ morphe_dl() {
 	morphe_dl
 	get_patches_key "youtube-music-morphe"
 	get_apk "com.google.android.apps.youtube.music" "youtube-music-arm64-v8a" "apk" "arm64-v8a"
-	patch "youtube-music-arm64-v8a" "morphe"
+	patch "youtube-music-arm64-v8a" "morphe" "youtube-music-arm64-v8a-morphe"
 }
 
 case "$1" in

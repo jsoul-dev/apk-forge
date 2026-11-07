@@ -22,12 +22,12 @@ jobs:
       - name: Check Morphe (YouTube & Music)
         id: check-morphe
         if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh MorpheApp/morphe-patches latest youtube-morphe.apk
+        run: bash src/etc/ci.sh MorpheApp/morphe-patches latest youtube-universal-morphe.apk
 
       - name: Check Brave (dh6k)
         id: check-brave
         if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh dh6k/morphe-patches latest brave-browser-arm64-v8a-brave.apk
+        run: bash src/etc/ci.sh dh6k/morphe-patches latest brave-browser-stable-arm64-v8a-dh6k.apk
 
       - name: Check Hushfacebook
         id: check-hushfacebook
@@ -47,37 +47,37 @@ jobs:
       - name: Check Hushfeed (TikTok)
         id: check-hushfeed
         if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh SysAdminDoc/hushfeed latest tiktok-hushfeed.apk
+        run: bash src/etc/ci.sh SysAdminDoc/hushfeed latest tiktok-dual-arch-hushfeed.apk
 
       - name: Check Hxreborn (Duolingo, Proton)
         id: check-hxreborn
         if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh hxreborn/morphe-patches latest duolingo-hxreborn.apk
+        run: bash src/etc/ci.sh hxreborn/morphe-patches latest duolingo-universal-hxreborn.apk
 
       - name: Check Piko NewX (Twitter / X)
         id: check-twitter-piko-newx
         if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh crimera/piko-newx latest twitter-piko-newx.apk
+        run: bash src/etc/ci.sh crimera/piko-newx latest twitter-universal-piko-newx.apk
 
       - name: Check Browzomje (Pinterest)
         id: check-browzomje
         if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh browzomje/browzomje-patches latest pinterest-browzomje.apk
+        run: bash src/etc/ci.sh browzomje/browzomje-patches latest pinterest-universal-browzomje.apk
 
       - name: Check Morphe Google Photos
         id: check-google-photos
         if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh Akash-Sriram/morphe-google-photos latest google-photos-arm64-v8a-google-photos.apk
+        run: bash src/etc/ci.sh Akash-Sriram/morphe-google-photos latest google-photos-arm64-v8a-akash-sriram.apk
 
       - name: Check Gboard Patches
         id: check-gboard
         if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh jasonwu1994/Gboard-patches latest gboard-gboard.apk
+        run: bash src/etc/ci.sh jasonwu1994/Gboard-patches latest gboard-arm64-v8a-jasonwu1994.apk
 
       - name: Check Discord Revenge
         id: check-discord
         if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh revenge-mod/revenge-xposed latest discord-revenge.apk
+        run: bash src/etc/ci.sh revenge-mod/revenge-xposed latest discord-universal-revenge.apk
 
     outputs:
       check_morphe: ${{ steps.check-morphe.outputs.new_patch }}

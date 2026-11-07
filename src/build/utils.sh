@@ -735,70 +735,80 @@ telegram_dl() {
 
 # Patching apps with CLI:
 patch() {
-	green_log "[+] Patching $1:"
-	if [ -f "./download/$1.apk" ]; then
+	local in_apk=$1
+	local opt_name=$2
+	local out_name=${3:-"$1-$2"}
+	green_log "[+] Patching $in_apk -> $out_name.apk:"
+	if [ -f "./download/$in_apk.apk" ]; then
 		echo "Patching with Morphe"
 		unset CI GITHUB_ACTION GITHUB_ACTIONS GITHUB_ACTOR GITHUB_ENV GITHUB_EVENT_NAME GITHUB_EVENT_PATH GITHUB_HEAD_REF GITHUB_JOB GITHUB_REF GITHUB_REPOSITORY GITHUB_RUN_ID GITHUB_RUN_NUMBER GITHUB_SHA GITHUB_WORKFLOW GITHUB_WORKSPACE RUN_ID RUN_NUMBER
-		eval java -jar morphe-desktop-*.jar patch -p *.mpp --options-file ./src/options/$2.json --out=./release/$1-$2.apk$excludePatches$includePatches --keystore=./src/keystore/morphe.keystore --force --continue-on-error ./download/$1.apk
+		eval java -jar morphe-desktop-*.jar patch -p *.mpp --options-file ./src/options/$opt_name.json --out=./release/$out_name.apk$excludePatches$includePatches --keystore=./src/keystore/morphe.keystore --force --continue-on-error ./download/$in_apk.apk
 		unset version
 		unset lock_version
 		unset excludePatches
 		unset includePatches
-		if [ ! -s "./release/$1-$2.apk" ]; then
-			red_log "[-] Failed to patch $1-$2.apk"
+		if [ ! -s "./release/$out_name.apk" ]; then
+			red_log "[-] Failed to patch $out_name.apk"
 			exit 1
 		fi
 	else
-		red_log "[-] Not found $1.apk"
+		red_log "[-] Not found $in_apk.apk"
 		exit 1
 	fi
 }
 
 patch_multi() {
-	green_log "[+] Patching $1:"
-	if [ -f "./download/$1.apk" ]; then
+	local in_apk=$1
+	local opt_name=$2
+	local out_name=${3:-"$1-$2"}
+	green_log "[+] Patching $in_apk -> $out_name.apk:"
+	if [ -f "./download/$in_apk.apk" ]; then
 		echo "Patching with Morphe"
 		local mpp_args=""
 		for mpp_file in *.mpp; do
 			[ -f "$mpp_file" ] || continue
 			mpp_args="$mpp_args -p \"$mpp_file\"$excludePatches$includePatches"
 		done
-		eval java -jar morphe-desktop-*.jar patch $mpp_args --options-file ./src/options/$2.json --out=./release/$1-$2.apk --keystore=./src/keystore/morphe.keystore --force --continue-on-error ./download/$1.apk
+		eval java -jar morphe-desktop-*.jar patch $mpp_args --options-file ./src/options/$opt_name.json --out=./release/$out_name.apk --keystore=./src/keystore/morphe.keystore --force --continue-on-error ./download/$in_apk.apk
   		unset version
 		unset lock_version
 		unset excludePatches
 		unset includePatches
-		if [ ! -s "./release/$1-$2.apk" ]; then
-			red_log "[-] Failed to patch $1-$2.apk"
+		if [ ! -s "./release/$out_name.apk" ]; then
+			red_log "[-] Failed to patch $out_name.apk"
 			exit 1
 		fi
 	else
-		red_log "[-] Not found $1.apk"
+		red_log "[-] Not found $in_apk.apk"
 		exit 1
 	fi
 }
 
 
 lspatch() {
-	green_log "[+] Patching $1:"
-	if [ -f "./download/$1.apk" ]; then
+	local in_apk=$1
+	local mod_input=$2
+	local out_name=$3
+	local extra_flags=$4
+	green_log "[+] Patching $in_apk -> $out_name.apk:"
+	if [ -f "./download/$in_apk.apk" ]; then
 		local module
-		if [[ "$2" == *.apk ]]; then
-			local -a matches=($2)
+		if [[ "$mod_input" == *.apk ]]; then
+			local -a matches=($mod_input)
 			module="${matches[0]}"
 		else
-			module="$2.apk"
+			module="$mod_input.apk"
 		fi
 		if [[ ! -f "$module" ]]; then
-			red_log "[-] Module not found: $2"
+			red_log "[-] Module not found: $mod_input"
 			return 1
 		fi
-		java -jar lspatch-*-release.jar ./download/$1.apk -k ./src/keystore/lspatch-signing.p12 "morphe" "fiorenmas" "morphe" $4 -m "$module" -o ./release/
-		mv ./release/$1-*-lspatched.apk ./release/$1-$3.apk
+		java -jar lspatch-*-release.jar ./download/$in_apk.apk -k ./src/keystore/lspatch-signing.p12 "morphe" "fiorenmas" "morphe" $extra_flags -m "$module" -o ./release/
+		mv ./release/$in_apk-*-lspatched.apk ./release/$out_name.apk
 		unset version
 		unset lock_version
 	else
-		red_log "[-] Not found $1.apk"
+		red_log "[-] Not found $in_apk.apk"
 		exit 1
 	fi
 }

@@ -10,7 +10,7 @@ lspatch_dl() {
 1() {
 	lspatch_dl
 	get_apk "com.discord" "discord" "bundle"
-	lspatch "discord" "app-release" "revenge"
+	lspatch "discord" "app-release" "discord-universal-revenge"
 }
 
 1

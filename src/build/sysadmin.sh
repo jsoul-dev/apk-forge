@@ -13,7 +13,7 @@ desktop_dl() {
 	dl_gh "Hushfacebook" "SysAdminDoc" "latest"
 	get_patches_key "facebook-hushfacebook"
 	get_apk "com.facebook.katana" "facebook-arm64-v8a" "bundle" "arm64-v8a" "480dpi" "Android 11+"
-	patch "facebook-arm64-v8a" "hushfacebook"
+	patch "facebook-arm64-v8a" "hushfacebook" "facebook-arm64-v8a-hushfacebook"
 }
 
 # 2: Messenger (HushMessenger)
@@ -23,7 +23,7 @@ desktop_dl() {
 	dl_gh "HushMessenger" "SysAdminDoc" "latest"
 	get_patches_key "messenger-hushmessenger"
 	get_apk "com.facebook.orca" "messenger-arm64-v8a" "apk" "arm64-v8a" "nodpi" "Android 9.0+"
-	patch "messenger-arm64-v8a" "hushmessenger"
+	patch "messenger-arm64-v8a" "hushmessenger" "messenger-arm64-v8a-hushmessenger"
 }
 
 # 3: Instagram (HushGram)
@@ -33,7 +33,7 @@ desktop_dl() {
 	dl_gh "HushGram" "SysAdminDoc" "latest"
 	get_patches_key "instagram-hushgram"
 	get_apk "com.instagram.android" "instagram-arm64-v8a" "bundle" "arm64-v8a" "120-640dpi" "Android 9.0+"
-	patch "instagram-arm64-v8a" "hushgram"
+	patch "instagram-arm64-v8a" "hushgram" "instagram-arm64-v8a-hushgram"
 }
 
 # 4: TikTok (hushfeed)
@@ -43,7 +43,7 @@ desktop_dl() {
 	dl_gh "hushfeed" "SysAdminDoc" "latest"
 	get_patches_key "tiktok-hushfeed"
 	get_apk "com.zhiliaoapp.musically" "tiktok" "apk" "arm64-v8a + armeabi-v7a" "nodpi"
-	patch "tiktok" "hushfeed"
+	patch "tiktok" "hushfeed" "tiktok-dual-arch-hushfeed"
 }
 
 case "$1" in

@@ -13,7 +13,7 @@ hxreborn_dl() {
 	get_patches_key "duolingo-morphe"
 	near_version="1"
 	get_apk "com.duolingo" "duolingo" "bundle" "universal" "120-640dpi"
-	patch "duolingo" "hxreborn"
+	patch "duolingo" "hxreborn" "duolingo-universal-hxreborn"
 }
 
 # 2: Proton Mail (Universal / All-Architecture)
@@ -22,7 +22,7 @@ hxreborn_dl() {
 	get_patches_key "protonmail-morphe"
 	near_version="1"
 	get_apk "ch.protonmail.android" "protonmail" "apk"
-	patch "protonmail" "hxreborn"
+	patch "protonmail" "hxreborn" "protonmail-universal-hxreborn"
 }
 
 # 3: Proton VPN (Universal / All-Architecture)
@@ -31,7 +31,7 @@ hxreborn_dl() {
 	get_patches_key "protonvpn-morphe"
 	near_version="1"
 	get_apk "ch.protonvpn.android" "protonvpn" "bundle" "universal"
-	patch "protonvpn" "hxreborn"
+	patch "protonvpn" "hxreborn" "protonvpn-universal-hxreborn"
 }
 
 case "$1" in

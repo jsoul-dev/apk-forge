@@ -13,12 +13,12 @@ brave_dl() {
 	# Arm64-v8a
 	get_patches_key "brave-browser-morphe"
 	get_apk "com.brave.browser" "brave-browser-arm64-v8a" "bundle" "arm64-v8a"
-	patch "brave-browser-arm64-v8a" "brave"
+	patch "brave-browser-arm64-v8a" "brave" "brave-browser-stable-arm64-v8a-dh6k"
 
 	# Armeabi-v7a
 	get_patches_key "brave-browser-morphe"
 	get_apk "com.brave.browser" "brave-browser-armeabi-v7a" "bundle" "armeabi-v7a"
-	patch "brave-browser-armeabi-v7a" "brave"
+	patch "brave-browser-armeabi-v7a" "brave" "brave-browser-stable-armeabi-v7a-dh6k"
 }
 
 # 2: Brave Browser Beta (arm64-v8a & armeabi-v7a)
@@ -27,12 +27,12 @@ brave_dl() {
 	# Arm64-v8a
 	get_patches_key "brave-beta-morphe"
 	get_apk "com.brave.browser_beta" "brave-beta-arm64-v8a" "bundle" "arm64-v8a"
-	patch "brave-beta-arm64-v8a" "brave"
+	patch "brave-beta-arm64-v8a" "brave" "brave-browser-beta-arm64-v8a-dh6k"
 
 	# Armeabi-v7a
 	get_patches_key "brave-beta-morphe"
 	get_apk "com.brave.browser_beta" "brave-beta-armeabi-v7a" "bundle" "armeabi-v7a"
-	patch "brave-beta-armeabi-v7a" "brave"
+	patch "brave-beta-armeabi-v7a" "brave" "brave-browser-beta-armeabi-v7a-dh6k"
 }
 
 case "$1" in

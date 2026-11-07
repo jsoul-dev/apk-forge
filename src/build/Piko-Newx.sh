@@ -11,7 +11,7 @@ piko_dl() {
 	piko_dl
 	get_patches_key "twitter-piko"
 	get_apk "com.twitter.android" "twitter" "bundle"
-	patch "twitter" "piko-newx"
+	patch "twitter" "piko-newx" "twitter-universal-piko-newx"
 }
 
 1
