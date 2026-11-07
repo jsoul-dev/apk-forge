@@ -142,7 +142,7 @@ Navigate to the <a href="../../actions/workflows/manual-patch.yml">Actions tab &
 
 This project does not host, modify, or distribute proprietary code directly within this Git repository. All modifications are applied at build time using open-source patch bundles and CLI frameworks.
 
-- [fiorenmas](https://github.com/fiorenmas) for the foundational workflow architecture, CI automation, and repository template that this project streamlined.
+- [FiorenMas](https://github.com/FiorenMas) for the foundational workflow architecture, CI automation, and repository template that this project streamlined.
 - [Morphe](https://github.com/MorpheApp) & [ReVanced](https://github.com/ReVanced) for patch and patcher frameworks.
 - [dh6k](https://github.com/dh6k/morphe-patches), [SysAdminDoc](https://github.com/SysAdminDoc), [hxreborn](https://github.com/hxreborn/morphe-patches), [crimera](https://github.com/crimera), [browzomje](https://github.com/browzomje), [Akash-Sriram](https://github.com/Akash-Sriram), [jasonwu1994](https://github.com/jasonwu1994), and [revenge-mod](https://github.com/revenge-mod) for patch authoring and maintenance.
 - All trademarks and brand names belong to their respective copyright holders.
