@@ -512,11 +512,12 @@ get_apk() {
 		--referer="$base_url$dl_btn_href" \
 		"${cookie_args[@]}" \
 		--timeout=120 \
-		"$base_url$final_href"
+		"$base_url$final_href" || rm -f "./download/$base_apk"
 
-	if [[ -f "./download/$base_apk" ]]; then
+	if [[ -s "./download/$base_apk" ]]; then
 		green_log "[+] Successfully downloaded $apk_name"
 	else
+		rm -f "./download/$base_apk"
 		red_log "[-] Failed to download $apk_name"
 		return 1
 	fi
@@ -743,6 +744,10 @@ patch() {
 		unset lock_version
 		unset excludePatches
 		unset includePatches
+		if [ ! -s "./release/$1-$2.apk" ]; then
+			red_log "[-] Failed to patch $1-$2.apk"
+			exit 1
+		fi
 	else
 		red_log "[-] Not found $1.apk"
 		exit 1
@@ -763,6 +768,10 @@ patch_multi() {
 		unset lock_version
 		unset excludePatches
 		unset includePatches
+		if [ ! -s "./release/$1-$2.apk" ]; then
+			red_log "[-] Failed to patch $1-$2.apk"
+			exit 1
+		fi
 	else
 		red_log "[-] Not found $1.apk"
 		exit 1

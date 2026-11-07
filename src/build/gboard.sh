@@ -10,7 +10,8 @@ gboard_dl() {
 1() {
 	gboard_dl
 	get_patches_key "gboard-morphe"
-	get_apk "com.google.android.inputmethod.latin" "gboard" "bundle" "universal"
+	near_version="1"
+	get_apk "com.google.android.inputmethod.latin" "gboard" "bundle" "arm64-v8a"
 	patch "gboard" "gboard"
 }
 

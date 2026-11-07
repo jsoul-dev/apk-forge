@@ -10,7 +10,8 @@ photos_dl() {
 1() {
 	photos_dl
 	get_patches_key "google-photos-morphe"
-	get_apk "com.google.android.apps.photos" "google-photos-arm64-v8a" "apk"
+	near_version="1"
+	get_apk "com.google.android.apps.photos" "google-photos-arm64-v8a" "bundle" "arm64-v8a"
 	patch "google-photos-arm64-v8a" "google-photos"
 }
 

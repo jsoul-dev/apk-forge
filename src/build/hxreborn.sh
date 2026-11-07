@@ -20,6 +20,7 @@ hxreborn_dl() {
 2() {
 	hxreborn_dl
 	get_patches_key "protonmail-morphe"
+	near_version="1"
 	get_apk "ch.protonmail.android" "protonmail" "apk"
 	patch "protonmail" "hxreborn"
 }
@@ -28,7 +29,8 @@ hxreborn_dl() {
 3() {
 	hxreborn_dl
 	get_patches_key "protonvpn-morphe"
-	get_apk "ch.protonvpn.android" "protonvpn" "bundle" "universal" "120-640dpi" "Android 8.0+"
+	near_version="1"
+	get_apk "ch.protonvpn.android" "protonvpn" "bundle" "universal"
 	patch "protonvpn" "hxreborn"
 }
 
