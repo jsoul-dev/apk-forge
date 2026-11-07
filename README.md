@@ -5,7 +5,7 @@
 **Automated, continuously updated Android applications patched with modern Morphe & LSPatch frameworks.**
 
 [![Release Status](https://img.shields.io/badge/Release-Continuous%20(Tag:%20all)-0070F3?style=for-the-badge&logo=github)](../../releases/tag/all)
-[![Patch Checker](https://img.shields.io/github/actions/workflow/status/fiorenmas/Revanced-And-Revanced-Extended-Non-Root/ci.yml?label=Patch%20Checker&style=for-the-badge)](../../actions/workflows/ci.yml)
+[![Patch Checker](https://img.shields.io/github/actions/workflow/status/jsoul-dev/apk-forge/ci.yml?label=Patch%20Checker&style=for-the-badge)](../../actions/workflows/ci.yml)
 [![MicroG RE](https://img.shields.io/badge/Prerequisite-MicroG%20RE-8A2BE2?style=for-the-badge&logo=android)](https://github.com/MorpheApp/MicroG-RE)
 
 </div>
@@ -35,45 +35,45 @@
 
 ## 🎬 Media & Streaming
 
-| Application | Patch Source | Architecture | Direct Download | Notes |
-|:---|:---|:---|:---:|:---|
-| **YouTube** | [MorpheApp/morphe-patches](https://github.com/MorpheApp/morphe-patches) | **All Architectures (Universal)** | [⬇️ Download](../../releases/download/all/youtube-morphe.apk) | Ad blocking, background playback, SponsorBlock, Return YouTube Dislike. Requires MicroG. |
-| **YouTube Music** | [MorpheApp/morphe-patches](https://github.com/MorpheApp/morphe-patches) | **Arm64-v8a** | [⬇️ Download](../../releases/download/all/youtube-music-arm64-v8a-morphe.apk) | Background audio, ad-free streaming, audio-only mode. Requires MicroG. |
-| **TikTok** | [SysAdminDoc/hushfeed](https://github.com/SysAdminDoc/hushfeed) | **Dual-Arch (`arm64-v8a` + `v7a`)** | [⬇️ Download](../../releases/download/all/tiktok-hushfeed.apk) | Removes sponsored posts & ads, bypasses regional download blocks, playback speed adjustments. |
+| Application | Patch Source | Architecture | Min Android | Direct Download | Notes |
+|:---|:---|:---|:---:|:---:|:---|
+| **YouTube** | [MorpheApp/morphe-patches](https://github.com/MorpheApp/morphe-patches) | **All Architectures (Universal)** | Android 9.0+ | [⬇️ Download](../../releases/download/all/youtube-morphe.apk) | Ad blocking, background playback, SponsorBlock, Return YouTube Dislike. Requires MicroG. |
+| **YouTube Music** | [MorpheApp/morphe-patches](https://github.com/MorpheApp/morphe-patches) | **Arm64-v8a** | Android 8.0+ | [⬇️ Download](../../releases/download/all/youtube-music-arm64-v8a-morphe.apk) | Background audio, ad-free streaming, audio-only mode. Requires MicroG. |
+| **TikTok** | [SysAdminDoc/hushfeed](https://github.com/SysAdminDoc/hushfeed) | **Dual-Arch (`arm64-v8a` + `v7a`)** | Android 6.0+ | [⬇️ Download](../../releases/download/all/tiktok-hushfeed.apk) | Removes sponsored posts & ads, bypasses regional download blocks, playback speed adjustments. |
 
 ---
 
 ## 💬 Social & Messaging
 
-| Application | Patch Source | Architecture | Direct Download | Notes |
-|:---|:---|:---|:---:|:---|
-| **Facebook** | [SysAdminDoc/Hushfacebook](https://github.com/SysAdminDoc/Hushfacebook) | **Arm64-v8a** | [⬇️ Download](../../releases/download/all/facebook-arm64-v8a-hushfacebook.apk) | Hides sponsored ads & suggested reels/feed clutter, media download support, in-app Hush settings. |
-| **Messenger** | [SysAdminDoc/HushMessenger](https://github.com/SysAdminDoc/HushMessenger) | **Arm64-v8a** | [⬇️ Download](../../releases/download/all/messenger-arm64-v8a-hushmessenger.apk) | Removes chat ads, original quality media transmission, UI decluttering. |
-| **Instagram** | [SysAdminDoc/HushGram](https://github.com/SysAdminDoc/HushGram) | **Arm64-v8a** | [⬇️ Download](../../releases/download/all/instagram-arm64-v8a-hushgram.apk) | Hides sponsored ads and shopping, media saver, ghost viewing options. |
-| **Twitter / X** | [crimera/piko-newx](https://github.com/crimera/piko-newx) | **All Architectures (Universal)** | [⬇️ Download](../../releases/download/all/twitter-piko-newx.apk) | Timeline ad removal, video & GIF downloading, custom theme & font tweaks. |
-| **Pinterest** | [browzomje/browzomje-patches](https://github.com/browzomje/browzomje-patches) | **All Architectures (Universal)** | [⬇️ Download](../../releases/download/all/pinterest-browzomje.apk) | Disables promoted pins, removes telemetry & tracking. |
-| **Discord** | [revenge-mod/revenge-xposed](https://github.com/revenge-mod/revenge-xposed) | **All Architectures (Universal)** | [⬇️ Download](../../releases/download/all/discord-revenge.apk) | Patched via LSPatch. Plugin support, custom themes, enhanced client functionality. |
+| Application | Patch Source | Architecture | Min Android | Direct Download | Notes |
+|:---|:---|:---|:---:|:---:|:---|
+| **Facebook** | [SysAdminDoc/Hushfacebook](https://github.com/SysAdminDoc/Hushfacebook) | **Arm64-v8a** | Android 11.0+ | [⬇️ Download](../../releases/download/all/facebook-arm64-v8a-hushfacebook.apk) | Hides sponsored ads & suggested reels/feed clutter, media download support, in-app Hush settings. |
+| **Messenger** | [SysAdminDoc/HushMessenger](https://github.com/SysAdminDoc/HushMessenger) | **Arm64-v8a** | Android 9.0+ | [⬇️ Download](../../releases/download/all/messenger-arm64-v8a-hushmessenger.apk) | Removes chat ads, original quality media transmission, UI decluttering. |
+| **Instagram** | [SysAdminDoc/HushGram](https://github.com/SysAdminDoc/HushGram) | **Arm64-v8a** | Android 9.0+ | [⬇️ Download](../../releases/download/all/instagram-arm64-v8a-hushgram.apk) | Hides sponsored ads and shopping, media saver, ghost viewing options. |
+| **Twitter / X** | [crimera/piko-newx](https://github.com/crimera/piko-newx) | **All Architectures (Universal)** | Android 9.0+ | [⬇️ Download](../../releases/download/all/twitter-piko-newx.apk) | Timeline ad removal, video & GIF downloading, custom theme & font tweaks. |
+| **Pinterest** | [browzomje/browzomje-patches](https://github.com/browzomje/browzomje-patches) | **All Architectures (Universal)** | Android 10+ | [⬇️ Download](../../releases/download/all/pinterest-browzomje.apk) | Disables promoted pins, removes telemetry & tracking. |
+| **Discord** | [revenge-mod/revenge-xposed](https://github.com/revenge-mod/revenge-xposed) | **All Architectures (Universal)** | Android 7.0+ | [⬇️ Download](../../releases/download/all/discord-revenge.apk) | Patched via LSPatch. Plugin support, custom themes, enhanced client functionality. |
 
 ---
 
 ## 🌐 Web & Input
 
-| Application | Patch Source | Architecture | Direct Download | Notes |
-|:---|:---|:---|:---:|:---|
-| **Brave Browser** | [dh6k/morphe-patches](https://github.com/dh6k/morphe-patches) | **Arm64-v8a**<br>**Armeabi-v7a** | [⬇️ Arm64-v8a](../../releases/download/all/brave-browser-arm64-v8a-brave.apk)<br>[⬇️ Armeabi-v7a](../../releases/download/all/brave-browser-armeabi-v7a-brave.apk) | Fast startup optimization, AMOLED dark theme, four-column NTP layout fix, privacy enhancements. |
-| **Brave Browser Beta** | [dh6k/morphe-patches](https://github.com/dh6k/morphe-patches) | **Arm64-v8a**<br>**Armeabi-v7a** | [⬇️ Arm64-v8a](../../releases/download/all/brave-beta-arm64-v8a-brave.apk)<br>[⬇️ Armeabi-v7a](../../releases/download/all/brave-beta-armeabi-v7a-brave.apk) | Early-access Chromium engine with all dh6k browser patches applied. |
-| **Gboard** | [jasonwu1994/Gboard-patches](https://github.com/jasonwu1994/Gboard-patches) | **All Architectures (Universal)** | [⬇️ Download](../../releases/download/all/gboard-gboard.apk) | Clipboard upgrades, custom themes & blur, toolbar shortcuts, OCR scanning, flag editor. |
+| Application | Patch Source | Architecture | Min Android | Direct Download | Notes |
+|:---|:---|:---|:---:|:---:|:---|
+| **Brave Browser** | [dh6k/morphe-patches](https://github.com/dh6k/morphe-patches) | **Arm64-v8a**<br>**Armeabi-v7a** | Android 10+ | [⬇️ Arm64-v8a](../../releases/download/all/brave-browser-arm64-v8a-brave.apk)<br>[⬇️ Armeabi-v7a](../../releases/download/all/brave-browser-armeabi-v7a-brave.apk) | Fast startup optimization, AMOLED dark theme, four-column NTP layout fix, privacy enhancements. |
+| **Brave Browser Beta** | [dh6k/morphe-patches](https://github.com/dh6k/morphe-patches) | **Arm64-v8a**<br>**Armeabi-v7a** | Android 10+ | [⬇️ Arm64-v8a](../../releases/download/all/brave-beta-arm64-v8a-brave.apk)<br>[⬇️ Armeabi-v7a](../../releases/download/all/brave-beta-armeabi-v7a-brave.apk) | Early-access Chromium engine with all dh6k browser patches applied. |
+| **Gboard** | [jasonwu1994/Gboard-patches](https://github.com/jasonwu1994/Gboard-patches) | **Arm64-v8a** | Android 10+ | [⬇️ Download](../../releases/download/all/gboard-gboard.apk) | Clipboard upgrades, custom themes & blur, toolbar shortcuts, OCR scanning, flag editor. |
 
 ---
 
 ## 🔒 Privacy & Utilities
 
-| Application | Patch Source | Architecture | Direct Download | Notes |
-|:---|:---|:---|:---:|:---|
-| **Duolingo** | [hxreborn/morphe-patches](https://github.com/hxreborn/morphe-patches) | **All Architectures (Universal)** | [⬇️ Download](../../releases/download/all/duolingo-hxreborn.apk) | Ad-free learning experience, unlimited hearts, AMOLED theme support. |
-| **Proton Mail** | [hxreborn/morphe-patches](https://github.com/hxreborn/morphe-patches) | **All Architectures (Universal)** | [⬇️ Download](../../releases/download/all/protonmail-hxreborn.apk) | Pure black AMOLED dark theme, cleaner layout. |
-| **Proton VPN** | [hxreborn/morphe-patches](https://github.com/hxreborn/morphe-patches) | **All Architectures (Universal)** | [⬇️ Download](../../releases/download/all/protonvpn-hxreborn.apk) | AMOLED dark theme, visual cleanup. |
-| **Google Photos** | [Akash-Sriram/morphe-google-photos](https://github.com/Akash-Sriram/morphe-google-photos) | **Arm64-v8a** | [⬇️ Download](../../releases/download/all/google-photos-arm64-v8a-google-photos.apk) | Unlimited backup spoofing, magic editor unlocking. Requires MicroG. |
+| Application | Patch Source | Architecture | Min Android | Direct Download | Notes |
+|:---|:---|:---|:---:|:---:|:---|
+| **Duolingo** | [hxreborn/morphe-patches](https://github.com/hxreborn/morphe-patches) | **All Architectures (Universal)** | Android 10+ | [⬇️ Download](../../releases/download/all/duolingo-hxreborn.apk) | Ad-free learning experience, unlimited hearts, AMOLED theme support. |
+| **Proton Mail** | [hxreborn/morphe-patches](https://github.com/hxreborn/morphe-patches) | **All Architectures (Universal)** | Android 10+ | [⬇️ Download](../../releases/download/all/protonmail-hxreborn.apk) | Pure black AMOLED dark theme, cleaner layout. |
+| **Proton VPN** | [hxreborn/morphe-patches](https://github.com/hxreborn/morphe-patches) | **All Architectures (Universal)** | Android 8.0+ | [⬇️ Download](../../releases/download/all/protonvpn-hxreborn.apk) | AMOLED dark theme, visual cleanup. |
+| **Google Photos** | [Akash-Sriram/morphe-google-photos](https://github.com/Akash-Sriram/morphe-google-photos) | **Arm64-v8a** | Android 7.0+ | [⬇️ Download](../../releases/download/all/google-photos-arm64-v8a-google-photos.apk) | Unlimited backup spoofing, magic editor unlocking. Requires MicroG. |
 
 ---
 
@@ -83,8 +83,8 @@ To ensure you download the build that works best on your device:
 
 | Architecture | Description | Which Apps Use It? |
 |:---|:---|:---|
-| **All Architectures (Universal)** | **Recommended.** Contains byte-compatible or multi-arch binaries that run on virtually any Android device (both 32-bit and 64-bit). | YouTube, Twitter / X, Discord, Gboard, Pinterest, Duolingo, Proton Mail, Proton VPN |
-| **Arm64-v8a** | Optimized for 64-bit ARM processors found in all modern smartphones (manufactured since ~2016). Smaller footprint and faster load times. | YouTube Music, Facebook, Messenger, Instagram, TikTok, Brave, Google Photos |
+| **All Architectures (Universal)** | **Recommended.** Contains byte-compatible or multi-arch binaries that run on virtually any Android device (both 32-bit and 64-bit). | YouTube, Twitter / X, Discord, Pinterest, Duolingo, Proton Mail, Proton VPN |
+| **Arm64-v8a** | Optimized for 64-bit ARM processors found in all modern smartphones (manufactured since ~2016). Smaller footprint and faster load times. | YouTube Music, Facebook, Messenger, Instagram, TikTok, Brave, Gboard, Google Photos |
 | **Armeabi-v7a** | Legacy 32-bit ARM architecture for older smartphones and lightweight Android devices. | Brave Browser (32-bit build), Brave Beta (32-bit build) |
 
 > [!TIP]
