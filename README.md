@@ -1,6 +1,6 @@
 <div align="center">
 
-# <picture><source srcset="assets/icons/forge.svg"><img src="assets/icons/forge.svg" width="32" height="32" alt="Forge" /></picture> APK Forge
+# <picture><source srcset="assets/icons/forge.svg"><img src="assets/icons/forge.svg" width="32" height="32" alt="Forge" /></picture> APK Forge <picture><source srcset="assets/icons/forge.svg"><img src="assets/icons/forge.svg" width="32" height="32" alt="Forge" /></picture>
 
 **Automated, continuously updated Android applications patched with modern Morphe & LSPatch frameworks.**
 
