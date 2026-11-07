@@ -131,7 +131,7 @@ You can supply custom parameters (such as custom app titles, header adjustments,
 
 ### Q: An app is crashing on startup or a specific patch is broken. Where do I report it?
 - **Workflow & Download Issues**: If a build fails in GitHub Actions or an APK download link is broken, open an issue in the **[apk-forge Issues](https://github.com/jsoul-dev/apk-forge/issues)** tracker.
-- **In-App Bugs & Patch Glitches**: Because APK Forge is an automated CI/CD builder and does not author the patches, app-level bugs should be reported upstream to the appropriate maintainer linked in the [README.md](README.md#disclaimer--credits).
+- **In-App Bugs & Patch Glitches**: Because APK Forge is an automated CI/CD builder and does not author the patches, app-level bugs should be reported upstream to the appropriate maintainer linked in the [README.md](README.md#-disclaimer--credits).
 
 ---
 

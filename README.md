@@ -44,7 +44,7 @@
 
 ## <picture><source srcset="assets/icons/compass.svg"><img src="assets/icons/compass.svg" width="22" height="22" alt="Navigation" /></picture> Quick Navigation
 
-| [Media & Streaming](#media--streaming) | [Social & Messaging](#social--messaging) | [Web & Input](#web--input) | [Privacy & Utilities](#privacy--utilities) | [Architecture Guide](#architecture-guide) | [FAQ](#frequently-asked-questions) | [Extended FAQ](FAQ.md) |
+| [Media & Streaming](#-media--streaming) | [Social & Messaging](#-social--messaging) | [Web & Input](#-web--input) | [Privacy & Utilities](#-privacy--utilities) | [Architecture Guide](#-architecture-guide) | [FAQ](#-frequently-asked-questions) | [Extended FAQ](FAQ.md) |
 |---|---|---|---|---|---|---|
 
 <p align="center">
