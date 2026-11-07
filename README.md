@@ -44,8 +44,8 @@
 
 ## <picture><source srcset="assets/icons/compass.svg"><img src="assets/icons/compass.svg" width="22" height="22" alt="Navigation" /></picture> Quick Navigation
 
-| [Media & Streaming](#media--streaming) | [Social & Messaging](#social--messaging) | [Web & Input](#web--input) | [Privacy & Utilities](#privacy--utilities) | [Architecture Guide](#architecture-guide) | [FAQ](#frequently-asked-questions) |
-|---|---|---|---|---|---|
+| [Media & Streaming](#media--streaming) | [Social & Messaging](#social--messaging) | [Web & Input](#web--input) | [Privacy & Utilities](#privacy--utilities) | [Architecture Guide](#architecture-guide) | [FAQ](#frequently-asked-questions) | [Extended FAQ](FAQ.md) |
+|---|---|---|---|---|---|---|
 
 <p align="center">
   <picture>
@@ -139,6 +139,9 @@ To ensure you download the build that works best on your device:
 </p>
 
 ## <picture><source srcset="assets/icons/help.svg"><img src="assets/icons/help.svg" width="22" height="22" alt="FAQ" /></picture> Frequently Asked Questions
+
+> [!TIP]
+> Looking for custom patch syntax, build options, or Morphe migration details? Check out our dedicated **[FAQ.md](FAQ.md)**.
 
 <details>
 <summary><b>1. Can I install updates directly over my current patched app without uninstalling?</b></summary>
