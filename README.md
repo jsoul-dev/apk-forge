@@ -70,8 +70,8 @@
 
 | Application | Patch Source | Architecture | Min Android | Direct Download | Notes |
 |:---|:---|:---|:---:|:---:|:---|
-| **Brave Browser** | [dh6k/morphe-patches](https://github.com/dh6k/morphe-patches) | **Arm64-v8a**<br>**Armeabi-v7a** | Android 10+ | [arm64-v8a](../../releases/download/all/brave-browser-stable-arm64-v8a-dh6k.apk) &nbsp;\|&nbsp; [armeabi-v7a](../../releases/download/all/brave-browser-stable-armeabi-v7a-dh6k.apk) | Fast startup optimization, AMOLED dark theme, four-column NTP layout fix, privacy enhancements. |
-| **Brave Browser Beta** | [dh6k/morphe-patches](https://github.com/dh6k/morphe-patches) | **Arm64-v8a**<br>**Armeabi-v7a** | Android 10+ | [arm64-v8a](../../releases/download/all/brave-browser-beta-arm64-v8a-dh6k.apk) &nbsp;\|&nbsp; [armeabi-v7a](../../releases/download/all/brave-browser-beta-armeabi-v7a-dh6k.apk) | Early-access Chromium engine with all dh6k browser patches applied. |
+| **Brave Browser** | [dh6k/morphe-patches](https://github.com/dh6k/morphe-patches) | **Arm64-v8a**<br>**Armeabi-v7a** | Android 10+ | • [arm64-v8a](../../releases/download/all/brave-browser-stable-arm64-v8a-dh6k.apk)<br>• [armeabi-v7a](../../releases/download/all/brave-browser-stable-armeabi-v7a-dh6k.apk) | Fast startup optimization, AMOLED dark theme, four-column NTP layout fix, privacy enhancements. |
+| **Brave Browser Beta** | [dh6k/morphe-patches](https://github.com/dh6k/morphe-patches) | **Arm64-v8a**<br>**Armeabi-v7a** | Android 10+ | • [arm64-v8a](../../releases/download/all/brave-browser-beta-arm64-v8a-dh6k.apk)<br>• [armeabi-v7a](../../releases/download/all/brave-browser-beta-armeabi-v7a-dh6k.apk) | Early-access Chromium engine with all dh6k browser patches applied. |
 | **Gboard** | [jasonwu1994/Gboard-patches](https://github.com/jasonwu1994/Gboard-patches) | **Arm64-v8a** | Android 10+ | [Download APK](../../releases/download/all/gboard-arm64-v8a-jasonwu1994.apk) | Clipboard upgrades, custom themes & blur, toolbar shortcuts, OCR scanning, flag editor. |
 
 <p align="center">
