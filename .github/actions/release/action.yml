@@ -5,26 +5,48 @@ runs:
     - name: Generate release info
       shell: bash
       run: |
-        echo "## 🚀 Rolling Release (Always Up-to-Date)
+        cat << 'EOF' > ${{ github.workspace }}-CHANGELOG.txt
+## 🚀 Rolling Release (Always Up-to-Date)
 
-        This repository operates as a **single continuous release**. Whenever upstream patches update, GitHub Actions rebuilds and updates the respective APK directly in this release.
+This repository operates as a **single continuous release**. Whenever upstream patches update, GitHub Actions rebuilds and updates the respective APK directly in this release.
 
-        Browse the [README.md](https://github.com/${{ github.repository }}/blob/main/README.md) for quick download buttons, architecture details, and setup instructions.
+Browse the [README.md](https://github.com/${{ github.repository }}/blob/main/README.md) for quick download buttons, architecture details, and setup instructions.
 
-        ### 📦 Upstream Patch Sources
-        - **YouTube & YouTube Music**: [MorpheApp/morphe-patches](https://github.com/MorpheApp/morphe-patches/releases/latest)
-        - **Brave & Brave Beta**: [dh6k/morphe-patches](https://github.com/dh6k/morphe-patches/releases/latest)
-        - **Facebook**: [SysAdminDoc/Hushfacebook](https://github.com/SysAdminDoc/Hushfacebook/releases/latest)
-        - **Messenger**: [SysAdminDoc/HushMessenger](https://github.com/SysAdminDoc/HushMessenger/releases/latest)
-        - **Instagram**: [SysAdminDoc/HushGram](https://github.com/SysAdminDoc/HushGram/releases/latest)
-        - **TikTok**: [SysAdminDoc/hushfeed](https://github.com/SysAdminDoc/hushfeed/releases/latest)
-        - **Duolingo, Proton Mail & VPN**: [hxreborn/morphe-patches](https://github.com/hxreborn/morphe-patches/releases/latest)
-        - **Twitter / X**: [crimera/piko-newx](https://github.com/crimera/piko-newx/releases/latest)
-        - **Pinterest**: [browzomje/browzomje-patches](https://github.com/browzomje/browzomje-patches/releases/latest)
-        - **Google Photos**: [Akash-Sriram/morphe-google-photos](https://github.com/Akash-Sriram/morphe-google-photos/releases/latest)
-        - **Gboard**: [jasonwu1994/Gboard-patches](https://github.com/jasonwu1994/Gboard-patches/releases/latest)
-        - **Discord**: [revenge-mod/revenge-xposed](https://github.com/revenge-mod/revenge-xposed/releases/latest)
-        " > ${{ github.workspace }}-CHANGELOG.txt
+---
+
+### 🔑 Prerequisite: MicroG RE (GmsCore)
+Required for Google Account login and push notifications on **YouTube**, **YouTube Music**, and **Google Photos**.
+
+📥 **Latest MicroG RE Release**: [MorpheApp/MicroG-RE Releases](https://github.com/MorpheApp/MicroG-RE/releases/latest)
+
+#### 💡 Which variant should you download?
+- **⭐ Recommended (Most modern phones)**: `microg-*-icon-arm64-v8a.apk` (~43.5 MB)  
+  Contains only 64-bit ARM native libraries. Less than half the size of the universal release and optimized for modern devices.
+- **📱 Universal (Safe fallback)**: `microg-*.apk` (~108 MB)  
+  Contains all architectures (32-bit & 64-bit). Use this if you are unsure which architecture your device supports.
+- **🕹️ Legacy 32-bit phones**: `microg-*-icon-armeabi-v7a.apk` (~41.4 MB)  
+  For older devices with a 32-bit ARM userspace.
+- **👁️ Hidden Launcher Icon (`-noicon`)**:  
+  Variants with `-noicon` (e.g. `microg-*-noicon-arm64-v8a.apk`) are identical in features, but hide the MicroG icon from your launcher/home screen (it can still be accessed via Android Settings &rarr; Apps).
+
+> **Tip**: After installing MicroG RE, disable battery optimization for it in Android Settings to ensure background sync and notifications work without interruption.
+
+---
+
+### 📦 Upstream Patch Sources
+- **YouTube & YouTube Music**: [MorpheApp/morphe-patches](https://github.com/MorpheApp/morphe-patches/releases/latest)
+- **Brave & Brave Beta**: [dh6k/morphe-patches](https://github.com/dh6k/morphe-patches/releases/latest)
+- **Facebook**: [SysAdminDoc/Hushfacebook](https://github.com/SysAdminDoc/Hushfacebook/releases/latest)
+- **Messenger**: [SysAdminDoc/HushMessenger](https://github.com/SysAdminDoc/HushMessenger/releases/latest)
+- **Instagram**: [SysAdminDoc/HushGram](https://github.com/SysAdminDoc/HushGram/releases/latest)
+- **TikTok**: [SysAdminDoc/hushfeed](https://github.com/SysAdminDoc/hushfeed/releases/latest)
+- **Duolingo, Proton Mail & VPN**: [hxreborn/morphe-patches](https://github.com/hxreborn/morphe-patches/releases/latest)
+- **Twitter / X**: [crimera/piko-newx](https://github.com/crimera/piko-newx/releases/latest)
+- **Pinterest**: [browzomje/browzomje-patches](https://github.com/browzomje/browzomje-patches/releases/latest)
+- **Google Photos**: [Akash-Sriram/morphe-google-photos](https://github.com/Akash-Sriram/morphe-google-photos/releases/latest)
+- **Gboard**: [jasonwu1994/Gboard-patches](https://github.com/jasonwu1994/Gboard-patches/releases/latest)
+- **Discord**: [revenge-mod/revenge-xposed](https://github.com/revenge-mod/revenge-xposed/releases/latest)
+EOF
     - name: Release
       uses: ncipollo/release-action@v1.21.0
       with:
