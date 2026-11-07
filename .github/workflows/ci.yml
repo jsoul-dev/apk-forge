@@ -7,249 +7,196 @@ on:
 
 jobs:
   check:
-    name: Check new patch
+    name: Check upstream patches
     runs-on: ubuntu-latest
     env:
       repository: ${{ github.repository }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6.0.2
       - name: Check github connection
         id: check-gh
         run: bash src/etc/connection.sh
-      - name: Check new patch Morphe
+
+      - name: Check Morphe (YouTube & Music)
         id: check-morphe
         if: steps.check-gh.outputs.internet_error == '0'
         run: bash src/etc/ci.sh MorpheApp/morphe-patches latest youtube-morphe.apk
-      - name: Check new patch Morphe Beta
-        id: check-morphe-beta
+
+      - name: Check Brave (dh6k)
+        id: check-brave
         if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh MorpheApp/morphe-patches prerelease youtube-beta-morphe.apk
-      - name: Check new patch Revanced Extended forked by Anddea Stable Version
-        id: check-rve-anddea-stable
-        if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh anddea/revanced-patches latest youtube-stable-anddea.apk
-      - name: Check new patch Revanced Extended forked by Anddea Beta Version
-        id: check-rve-anddea-beta
-        if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh anddea/revanced-patches prerelease youtube-beta-anddea.apk
-      - name: Check new patch Twitter Piko Stable
-        id: check-twitter-piko-stable
-        if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh crimera/piko latest twitter-stable-piko.apk
-      - name: Check new patch Twitter Piko Beta
-        id: check-twitter-piko-beta
-        if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh crimera/piko prerelease twitter-beta-piko.apk
-      - name: Check new patch Piko NewX
-        id: check-twitter-piko-newx
-        if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh crimera/piko-newx latest twitter-piko-newx.apk
-      - name: Check new patch DeReVanced
-        id: check-derv
-        if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh RookieEnough/De-ReVanced latest gg-photos-arm64-v8a-derevanced.apk
-      - name: Check new patch HushFacebook
+        run: bash src/etc/ci.sh dh6k/morphe-patches latest brave-browser-arm64-v8a-brave.apk
+
+      - name: Check Hushfacebook
         id: check-hushfacebook
         if: steps.check-gh.outputs.internet_error == '0'
         run: bash src/etc/ci.sh SysAdminDoc/Hushfacebook latest facebook-arm64-v8a-hushfacebook.apk
-      - name: Check new patch hoo-dles
-        id: check-hoo-dles
+
+      - name: Check HushMessenger
+        id: check-hushmessenger
         if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh hoo-dles/morphe-patches latest protonvpn-hoo-dles.apk
-      - name: Check new patch bufferk
-        id: check-bufferk
+        run: bash src/etc/ci.sh SysAdminDoc/HushMessenger latest messenger-arm64-v8a-hushmessenger.apk
+
+      - name: Check HushGram
+        id: check-hushgram
         if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh bufferk/morphe-patches latest brave-browser-arm64-v8a-bufferk.apk
-      - name: Check new patch arandomhooman
-        id: check-arandomhooman
+        run: bash src/etc/ci.sh SysAdminDoc/HushGram latest instagram-arm64-v8a-hushgram.apk
+
+      - name: Check Hushfeed (TikTok)
+        id: check-hushfeed
         if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh arandomhooman/hoomans-morphe-patches latest twitch-arandomhooman.apk
-      - name: Check new patch rushiranpise
-        id: check-rushiranpise
+        run: bash src/etc/ci.sh SysAdminDoc/hushfeed latest tiktok-hushfeed.apk
+
+      - name: Check Hxreborn (Duolingo, Proton)
+        id: check-hxreborn
         if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh rushiranpise/morphe-patches latest adguard-rushiranpise.apk
-      - name: Check new patch icysymmetra
-        id: check-icysymmetra
+        run: bash src/etc/ci.sh hxreborn/morphe-patches latest duolingo-hxreborn.apk
+
+      - name: Check Piko NewX (Twitter / X)
+        id: check-twitter-piko-newx
         if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh icysymmetra/tiktok-patches-for-morphe latest tiktok-icysymmetra.apk
-      - name: Check new patch docbt
-        id: check-docbt
-        if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh docbt/patched-up latest googlenews-docbt.apk
-      - name: Check new patch browzomje
+        run: bash src/etc/ci.sh crimera/piko-newx latest twitter-piko-newx.apk
+
+      - name: Check Browzomje (Pinterest)
         id: check-browzomje
         if: steps.check-gh.outputs.internet_error == '0'
         run: bash src/etc/ci.sh browzomje/browzomje-patches latest pinterest-browzomje.apk
-      - name: Check new patch BiliRoamingM
-        id: check-BiliRoamingM
+
+      - name: Check Morphe Google Photos
+        id: check-google-photos
         if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh sakarie9/BiliRoamingM latest bilibili-BiliRoamingM.apk
-      - name: Check new patch Revanced Experiments
-        id: check-Revanced-Experiments
+        run: bash src/etc/ci.sh Akash-Sriram/morphe-google-photos latest google-photos-arm64-v8a-google-photos.apk
+
+      - name: Check Gboard Patches
+        id: check-gboard
         if: steps.check-gh.outputs.internet_error == '0'
-        run: bash src/etc/ci.sh Aunali321/ReVancedExperiments latest telegram-revanced-experiments.apk
+        run: bash src/etc/ci.sh jasonwu1994/Gboard-patches latest gboard-gboard.apk
+
+      - name: Check Discord Revenge
+        id: check-discord
+        if: steps.check-gh.outputs.internet_error == '0'
+        run: bash src/etc/ci.sh revenge-mod/revenge-xposed latest discord-revenge.apk
+
     outputs:
       check_morphe: ${{ steps.check-morphe.outputs.new_patch }}
-      check_morphe_beta: ${{ steps.check-morphe-beta.outputs.new_patch }}
-      check_rve_anddea_stable: ${{ steps.check-rve-anddea-stable.outputs.new_patch }}
-      check_rve_anddea_beta: ${{ steps.check-rve-anddea-beta.outputs.new_patch }}
-      check_twitter_piko_stable: ${{ steps.check-twitter-piko-stable.outputs.new_patch }}
-      check_twitter_piko_beta: ${{ steps.check-twitter-piko-beta.outputs.new_patch }}
-      check_twitter_piko_newx: ${{ steps.check-twitter-piko-newx.outputs.new_patch }}
-      check_derv: ${{ steps.check-derv.outputs.new_patch }}
+      check_brave: ${{ steps.check-brave.outputs.new_patch }}
       check_hushfacebook: ${{ steps.check-hushfacebook.outputs.new_patch }}
-      check_hoo_dles: ${{ steps.check-hoo-dles.outputs.new_patch }}
-      check_bufferk: ${{ steps.check-bufferk.outputs.new_patch }}
-      check_arandomhooman: ${{ steps.check-arandomhooman.outputs.new_patch }}
-      check_rushiranpise: ${{ steps.check-rushiranpise.outputs.new_patch }}
-      check_icysymmetra: ${{ steps.check-icysymmetra.outputs.new_patch }}
+      check_hushmessenger: ${{ steps.check-hushmessenger.outputs.new_patch }}
+      check_hushgram: ${{ steps.check-hushgram.outputs.new_patch }}
+      check_hushfeed: ${{ steps.check-hushfeed.outputs.new_patch }}
+      check_hxreborn: ${{ steps.check-hxreborn.outputs.new_patch }}
+      check_twitter_piko_newx: ${{ steps.check-twitter-piko-newx.outputs.new_patch }}
       check_browzomje: ${{ steps.check-browzomje.outputs.new_patch }}
-      check_docbt: ${{ steps.check-docbt.outputs.new_patch }}
-      check_BiliRoamingM: ${{ steps.check-BiliRoamingM.outputs.new_patch }}
-      check_Revanced_Experiments: ${{ steps.check-Revanced-Experiments.outputs.new_patch }}
+      check_google_photos: ${{ steps.check-google-photos.outputs.new_patch }}
+      check_gboard: ${{ steps.check-gboard.outputs.new_patch }}
+      check_discord: ${{ steps.check-discord.outputs.new_patch }}
 
   Patch-Morphe:
     name: Patch Morphe
     needs: check
-    if: ${{ needs.check.outputs.check_morphe == 1 }}
+    if: ${{ needs.check.outputs.check_morphe == '1' }}
     uses: ./.github/workflows/manual-patch.yml
     secrets: inherit
     with:
       org: "Morphe"
-  Patch-Morphe-Beta:
-    name: Patch Morphe Beta
+
+  Patch-Brave:
+    name: Patch Brave
     needs: check
-    if: ${{ needs.check.outputs.check_morphe_beta == 1 }}
+    if: ${{ needs.check.outputs.check_brave == '1' }}
     uses: ./.github/workflows/manual-patch.yml
     secrets: inherit
     with:
-      org: "Morphe Beta"
-  Patch-RVE-anddea-stable:
-    name: Patch RVX Anddea Stable
+      org: "Brave"
+
+  Patch-Hushfacebook:
+    name: Patch Hushfacebook
     needs: check
-    if: ${{ needs.check.outputs.check_rve_anddea_stable == 1 }}
+    if: ${{ needs.check.outputs.check_hushfacebook == '1' }}
     uses: ./.github/workflows/manual-patch.yml
     secrets: inherit
     with:
-      org: "RVE-anddea-stable"
-  Patch-RVE-anddea-beta:
-    name: Patch RVX Anddea Beta
+      org: "Hushfacebook"
+
+  Patch-HushMessenger:
+    name: Patch HushMessenger
     needs: check
-    if: ${{ needs.check.outputs.check_rve_anddea_beta == 1 }}
+    if: ${{ needs.check.outputs.check_hushmessenger == '1' }}
     uses: ./.github/workflows/manual-patch.yml
     secrets: inherit
     with:
-      org: "RVE-anddea-beta"
-  Patch-Twitter-Piko-Stable:
-    name: Patch Twitter Piko Stable
+      org: "HushMessenger"
+
+  Patch-HushGram:
+    name: Patch HushGram
     needs: check
-    if: ${{ needs.check.outputs.check_twitter_piko_stable == 1 }}
+    if: ${{ needs.check.outputs.check_hushgram == '1' }}
     uses: ./.github/workflows/manual-patch.yml
     secrets: inherit
     with:
-      org: "Twitter Piko Stable"
-  Patch-Twitter-Piko-Beta:
-    name: Patch Twitter Piko Beta
+      org: "HushGram"
+
+  Patch-HushFeed:
+    name: Patch HushFeed
     needs: check
-    if: ${{ needs.check.outputs.check_twitter_piko_beta == 1 }}
+    if: ${{ needs.check.outputs.check_hushfeed == '1' }}
     uses: ./.github/workflows/manual-patch.yml
     secrets: inherit
     with:
-      org: "Twitter Piko Beta"
+      org: "HushFeed"
+
+  Patch-Hxreborn:
+    name: Patch Hxreborn
+    needs: check
+    if: ${{ needs.check.outputs.check_hxreborn == '1' }}
+    uses: ./.github/workflows/manual-patch.yml
+    secrets: inherit
+    with:
+      org: "Hxreborn"
+
   Patch-Twitter-Piko-NewX:
     name: Patch Twitter Piko NewX
     needs: check
-    if: ${{ needs.check.outputs.check_twitter_piko_newx == 1 }}
+    if: ${{ needs.check.outputs.check_twitter_piko_newx == '1' }}
     uses: ./.github/workflows/manual-patch.yml
     secrets: inherit
     with:
-      org: "Piko NewX"
-  Patch-DeRevanced:
-    name: Patch DeRevanced Stable
+      org: "Piko-NewX"
+
+  Patch-Browzomje:
+    name: Patch Browzomje
     needs: check
-    if: ${{ needs.check.outputs.check_derv == 1 }}
+    if: ${{ needs.check.outputs.check_browzomje == '1' }}
     uses: ./.github/workflows/manual-patch.yml
     secrets: inherit
     with:
-      org: "DeRevanced"
-  Patch-hush-facebook:
-    name: Patch HushFacebook
+      org: "Pinterest"
+
+  Patch-GooglePhotos:
+    name: Patch Google Photos
     needs: check
-    if: ${{ needs.check.outputs.check_hushfacebook == 1 }}
+    if: ${{ needs.check.outputs.check_google_photos == '1' }}
     uses: ./.github/workflows/manual-patch.yml
     secrets: inherit
     with:
-      org: "HushFacebook"
-  Patch-hoo-dles:
-    name: Patch hoo-dles
+      org: "GooglePhotos"
+
+  Patch-Gboard:
+    name: Patch Gboard
     needs: check
-    if: ${{ needs.check.outputs.check_hoo_dles == 1 }}
+    if: ${{ needs.check.outputs.check_gboard == '1' }}
     uses: ./.github/workflows/manual-patch.yml
     secrets: inherit
     with:
-      org: "hoo-dles"
-  Patch-bufferk:
-    name: Patch bufferk
+      org: "Gboard"
+
+  Patch-Discord:
+    name: Patch Discord
     needs: check
-    if: ${{ needs.check.outputs.check_bufferk == 1 }}
+    if: ${{ needs.check.outputs.check_discord == '1' }}
     uses: ./.github/workflows/manual-patch.yml
     secrets: inherit
     with:
-      org: "bufferk"
-  Patch-arandomhooman:
-    name: Patch arandomhooman
-    needs: check
-    if: ${{ needs.check.outputs.check_arandomhooman == 1 }}
-    uses: ./.github/workflows/manual-patch.yml
-    secrets: inherit
-    with:
-      org: "arandomhooman"
-  Patch-rushiranpise:
-    name: Patch rushiranpise
-    needs: check
-    if: ${{ needs.check.outputs.check_rushiranpise == 1 }}
-    uses: ./.github/workflows/manual-patch.yml
-    secrets: inherit
-    with:
-      org: "rushiranpise"
-  Patch-icysymmetra:
-    name: Patch icysymmetra
-    needs: check
-    if: ${{ needs.check.outputs.check_icysymmetra == 1 }}
-    uses: ./.github/workflows/manual-patch.yml
-    secrets: inherit
-    with:
-      org: "icysymmetra"
-  Patch-browzomje:
-    name: Patch browzomje
-    needs: check
-    if: ${{ needs.check.outputs.check_browzomje == 1 }}
-    uses: ./.github/workflows/manual-patch.yml
-    secrets: inherit
-    with:
-      org: "browzomje"
-  Patch-docbt:
-    name: Patch docbt
-    needs: check
-    if: ${{ needs.check.outputs.check_docbt == 1 }}
-    uses: ./.github/workflows/manual-patch.yml
-    secrets: inherit
-    with:
-      org: "docbt"
-  Patch-BiliRoamingM:
-    name: Patch BiliRoamingM
-    needs: check
-    if: ${{ needs.check.outputs.check_BiliRoamingM == 1 }}
-    uses: ./.github/workflows/manual-patch.yml
-    secrets: inherit
-    with:
-      org: "BiliRoamingM"
-  Patch-Revanced-Experiments:
-    name: Patch Revanced Experiments
-    needs: check
-    if: ${{ needs.check.outputs.check_Revanced_Experiments == 1 }}
-    uses: ./.github/workflows/manual-patch.yml
-    secrets: inherit
-    with:
-      org: "Revanced Experiments"
+      org: "Discord"

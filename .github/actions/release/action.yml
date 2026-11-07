@@ -5,23 +5,33 @@ runs:
     - name: Generate release info
       shell: bash
       run: |
-        echo "
-        **This repository is not like any other repository. It does not create new releases; it only releases new files.**
-        **Forget about scrolling whole release page find files. Just read [Readme.md](../main/README.md#microg-revanced) file and select apps you want download.**
-        **Change log** :point_down:
-        [Morphe](https://github.com/MorpheApp/morphe-patches/releases/)
-        [Revanced](https://github.com/revanced/revanced-patches/releases)
-        [Revanced Extended](https://github.com/inotia00/revanced-patches/releases)
-        [Revanced Extended anddea](https://github.com/anddea/revanced-patches/releases)
-        [Revanced Extended for Android 6 & 7](https://github.com/kitadai31/revanced-patches-android6-7/releases)
-        [Revanced Extended For Android 5:](https://github.com/d4n3436/revanced-patches-android5/releases)
-        "> ${{ github.workspace }}-CHANGELOG.txt
+        echo "## 🚀 Rolling Release (Always Up-to-Date)
+
+        This repository operates as a **single continuous release**. Whenever upstream patches update, GitHub Actions rebuilds and updates the respective APK directly in this release.
+
+        Browse the [README.md](https://github.com/${{ github.repository }}/blob/main/README.md) for quick download buttons, architecture details, and setup instructions.
+
+        ### 📦 Upstream Patch Sources
+        - **YouTube & YouTube Music**: [MorpheApp/morphe-patches](https://github.com/MorpheApp/morphe-patches/releases/latest)
+        - **Brave & Brave Beta**: [dh6k/morphe-patches](https://github.com/dh6k/morphe-patches/releases/latest)
+        - **Facebook**: [SysAdminDoc/Hushfacebook](https://github.com/SysAdminDoc/Hushfacebook/releases/latest)
+        - **Messenger**: [SysAdminDoc/HushMessenger](https://github.com/SysAdminDoc/HushMessenger/releases/latest)
+        - **Instagram**: [SysAdminDoc/HushGram](https://github.com/SysAdminDoc/HushGram/releases/latest)
+        - **TikTok**: [SysAdminDoc/hushfeed](https://github.com/SysAdminDoc/hushfeed/releases/latest)
+        - **Duolingo, Proton Mail & VPN**: [hxreborn/morphe-patches](https://github.com/hxreborn/morphe-patches/releases/latest)
+        - **Twitter / X**: [crimera/piko-newx](https://github.com/crimera/piko-newx/releases/latest)
+        - **Pinterest**: [browzomje/browzomje-patches](https://github.com/browzomje/browzomje-patches/releases/latest)
+        - **Google Photos**: [Akash-Sriram/morphe-google-photos](https://github.com/Akash-Sriram/morphe-google-photos/releases/latest)
+        - **Gboard**: [jasonwu1994/Gboard-patches](https://github.com/jasonwu1994/Gboard-patches/releases/latest)
+        - **Discord**: [revenge-mod/revenge-xposed](https://github.com/revenge-mod/revenge-xposed/releases/latest)
+        " > ${{ github.workspace }}-CHANGELOG.txt
     - name: Release
       uses: ncipollo/release-action@v1.21.0
       with:
         artifacts: |
           ./release/*.apk
-        name: Revanced & Revanced Extended
+        name: Continuous Release
         tag: all
         bodyFile: ${{ github.workspace }}-CHANGELOG.txt
         allowUpdates: true
+        replacesArtifacts: true
