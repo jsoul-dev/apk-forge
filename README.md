@@ -30,10 +30,10 @@
 > To sign in and use **YouTube**, **YouTube Music**, or **Google Photos**, you must install [MicroG RE](https://github.com/MorpheApp/MicroG-RE/releases/latest) on your device.
 >
 > **Which file should you download?**
-> - **⭐ Recommended (Most modern phones)**: `microg-*-icon-arm64-v8a.apk` (~43.5 MB) &mdash; Optimized 64-bit build, under half the download size of universal.
-> - **📱 Universal (Safe fallback)**: `microg-*.apk` (~108 MB) &mdash; Compatible with all devices and architectures (32-bit & 64-bit).
-> - **🕹️ Legacy 32-bit phones**: `microg-*-icon-armeabi-v7a.apk` (~41.4 MB).
-> - **👁️ Hide Launcher Icon (`-noicon`)**: Select a `-noicon` variant if you do not want the MicroG shortcut in your launcher app drawer.
+> - **Recommended (Most modern phones)**: `microg-*-icon-arm64-v8a.apk` (~43.5 MB) &mdash; Optimized 64-bit build, under half the download size of universal.
+> - **Universal (Safe fallback)**: `microg-*.apk` (~108 MB) &mdash; Compatible with all devices and architectures (32-bit & 64-bit).
+> - **Legacy 32-bit phones**: `microg-*-icon-armeabi-v7a.apk` (~41.4 MB).
+> - **Hidden Launcher Icon (`-noicon`)**: Select a `-noicon` variant if you do not want the MicroG shortcut in your launcher app drawer.
 
 <p align="center">
   <picture>

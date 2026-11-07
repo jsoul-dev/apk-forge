@@ -19,14 +19,14 @@ Required for Google Account login and push notifications on **YouTube**, **YouTu
 
 📥 **Latest MicroG RE Release**: [MorpheApp/MicroG-RE Releases](https://github.com/MorpheApp/MicroG-RE/releases/latest)
 
-#### 💡 Which variant should you download?
-- **⭐ Recommended (Most modern phones)**: `microg-*-icon-arm64-v8a.apk` (~43.5 MB)  
+#### Which variant should you download?
+- **Recommended (Most modern phones)**: `microg-*-icon-arm64-v8a.apk` (~43.5 MB)  
   Contains only 64-bit ARM native libraries. Less than half the size of the universal release and optimized for modern devices.
-- **📱 Universal (Safe fallback)**: `microg-*.apk` (~108 MB)  
+- **Universal (Safe fallback)**: `microg-*.apk` (~108 MB)  
   Contains all architectures (32-bit & 64-bit). Use this if you are unsure which architecture your device supports.
-- **🕹️ Legacy 32-bit phones**: `microg-*-icon-armeabi-v7a.apk` (~41.4 MB)  
+- **Legacy 32-bit phones**: `microg-*-icon-armeabi-v7a.apk` (~41.4 MB)  
   For older devices with a 32-bit ARM userspace.
-- **👁️ Hidden Launcher Icon (`-noicon`)**:  
+- **Hidden Launcher Icon (`-noicon`)**:  
   Variants with `-noicon` (e.g. `microg-*-noicon-arm64-v8a.apk`) are identical in features, but hide the MicroG icon from your launcher/home screen (it can still be accessed via Android Settings &rarr; Apps).
 
 > **Tip**: After installing MicroG RE, disable battery optimization for it in Android Settings to ensure background sync and notifications work without interruption.
