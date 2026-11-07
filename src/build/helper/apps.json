@@ -6,15 +6,16 @@
 		},
 		"ch.protonvpn.android": {
 			"list_url": "https://www.apkmirror.com/uploads/?appcategory=protonvpn-secure-and-free-vpn",
-			"example_url": "https://www.apkmirror.com/apk/proton-technologies-ag/protonvpn-secure-and-free-vpn/proton-vpn-fast-secure-vpn-5-18-18-0-release/"
+			"example_url": "https://www.apkmirror.com/apk/proton-technologies-ag/protonvpn-secure-and-free-vpn/proton-vpn-fast-secure-vpn-5-20-98-0-release/",
+			"example_url2": "https://www.apkmirror.com/apk/proton-technologies-ag/protonvpn-secure-and-free-vpn/proton-vpn-secure-fast-vpn-5-21-9-0-release/"
 		},
 		"com.brave.browser": {
 			"list_url": "https://www.apkmirror.com/uploads/?appcategory=brave-browser",
 			"example_url": "https://www.apkmirror.com/apk/brave-software/brave-browser/brave-private-web-browser-vpn-1-92-140-release/"
 		},
 		"com.brave.browser_beta": {
-			"list_url": "https://www.apkmirror.com/uploads/?appcategory=brave-beta",
-			"example_url": "https://www.apkmirror.com/apk/brave-software/brave-beta/brave-beta-1-76-59-release/"
+			"list_url": "https://www.apkmirror.com/uploads/?appcategory=brave-browser-beta",
+			"example_url": "https://www.apkmirror.com/apk/brave-software/brave-browser-beta/brave-beta-1-99-44-release/"
 		},
 		"com.discord": {
 			"list_url": "https://www.apkmirror.com/uploads/?appcategory=discord-chat-for-gamers",
@@ -34,7 +35,7 @@
 		},
 		"com.google.android.apps.photos": {
 			"list_url": "https://www.apkmirror.com/uploads/?appcategory=photos",
-			"example_url": "https://www.apkmirror.com/apk/google-inc/photos/google-photos-7-74-0-910345644-release/"
+			"example_url": "https://www.apkmirror.com/apk/google-inc/photos/google-photos-7-99-0-1007655401-release/"
 		},
 		"com.google.android.apps.youtube.music": {
 			"list_url": "https://www.apkmirror.com/uploads/?appcategory=youtube-music",
@@ -42,7 +43,7 @@
 		},
 		"com.google.android.inputmethod.latin": {
 			"list_url": "https://www.apkmirror.com/uploads/?appcategory=gboard",
-			"example_url": "https://www.apkmirror.com/apk/google-inc/gboard/gboard-the-google-keyboard-16-4-02-747372170-release/"
+			"example_url": "https://www.apkmirror.com/apk/google-inc/gboard/gboard-the-google-keyboard-18-5-4-993608717-release/"
 		},
 		"com.google.android.youtube": {
 			"list_url": "https://www.apkmirror.com/uploads/?appcategory=youtube",
