@@ -23,7 +23,8 @@
 		},
 		"com.duolingo": {
 			"list_url": "https://www.apkmirror.com/uploads/?appcategory=duolingo-duolingo",
-			"example_url": "https://www.apkmirror.com/apk/duolingo/duolingo-duolingo/duolingo-language-lessons-6-77-5-release/"
+			"example_url": "https://www.apkmirror.com/apk/duolingo/duolingo-duolingo/duolingo-learn-languages-6-104-5-release/",
+			"example_url2": "https://www.apkmirror.com/apk/duolingo/duolingo-duolingo/duolingo-language-lessons-6-77-5-release/"
 		},
 		"com.facebook.katana": {
 			"list_url": "https://www.apkmirror.com/uploads/?appcategory=facebook",
@@ -59,8 +60,9 @@
 		},
 		"com.twitter.android": {
 			"list_url": "https://www.apkmirror.com/uploads/?appcategory=twitter",
-			"example_url": "https://www.apkmirror.com/apk/x-corp/twitter/x-12-19-1-release-0-release/",
-			"example_url2": "https://www.apkmirror.com/apk/x-corp/twitter/x-12-24-0-prod-02-release/"
+			"example_url": "https://www.apkmirror.com/apk/x-corp/twitter/x-12-41-0-prod-01-release/",
+			"example_url2": "https://www.apkmirror.com/apk/x-corp/twitter/x-12-24-0-prod-02-release/",
+			"example_url3": "https://www.apkmirror.com/apk/x-corp/twitter/x-12-19-1-release-0-release/"
 		},
 		"com.zhiliaoapp.musically": {
 			"list_url": "https://www.apkmirror.com/uploads/?appcategory=tik-tok-including-musical-ly",

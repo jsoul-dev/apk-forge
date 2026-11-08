@@ -285,7 +285,7 @@ get_apk() {
 	list_url=$(jq -r --arg pkg "$pkg_name" '.apkmirror[$pkg].list_url // empty' "$apps_json")
 	while IFS= read -r example_url; do
 		[[ -n "$example_url" ]] && example_urls+=("$example_url")
-	done < <(jq -r --arg pkg "$pkg_name" '.apkmirror[$pkg] | .example_url, .example_url2 // empty' "$apps_json")
+	done < <(jq -r --arg pkg "$pkg_name" '.apkmirror[$pkg] | .example_url, .example_url2, .example_url3 // empty' "$apps_json")
 
 	if [[ -z "$list_url" ]]; then
 		red_log "[-] Package $pkg_name not found in apps.json"
@@ -331,14 +331,14 @@ get_apk() {
 		_cf_get "$list_url" || return 1
 
 		if [[ "$pkg_name" == *"beta"* ]]; then
-			version_href=$(echo "$html" | $pup '#content h5.appRowTitle a.fontBlack json{}' | \
+			version_href=$(echo "$html" | $pup '#primary h5.appRowTitle a.fontBlack json{}' | \
 				jq -r '.[] | select(.text | test("(?i)alpha") | not) | .href' | head -1)
 		else
-			version_href=$(echo "$html" | $pup '#content h5.appRowTitle a.fontBlack json{}' | \
+			version_href=$(echo "$html" | $pup '#primary h5.appRowTitle a.fontBlack json{}' | \
 				jq -r '.[] | select(.text | test("(?i)beta|alpha") | not) | .href' | head -1)
 		fi
 		[[ -z "$version_href" ]] && \
-			version_href=$(echo "$html" | $pup '#content h5.appRowTitle a.fontBlack attr{href}' | head -1)
+			version_href=$(echo "$html" | $pup '#primary h5.appRowTitle a.fontBlack attr{href}' | head -1)
 
 		if [[ -z "$version_href" ]]; then
 			red_log "[-] Could not find release on APKMirror"
@@ -372,7 +372,7 @@ get_apk() {
 			fi
 			_cf_get "$page_url" || return 1
 			if [[ -n "$target_ver_dot" ]]; then
-				version_href=$(echo "$html" | $pup 'h5.appRowTitle a.fontBlack json{}' | \
+				version_href=$(echo "$html" | $pup '#primary h5.appRowTitle a.fontBlack json{}' | \
 					jq -r --arg v "$target_ver_dot" '.[] | select(.text | contains($v)) | .href' | head -1)
 				if [[ -z "$version_href" && "$allow_near_version" == "1" ]]; then
 					local release_text release_href release_version
@@ -385,11 +385,11 @@ get_apk() {
 								near_version_href="$release_href"
 							fi
 						fi
-					done < <(echo "$html" | $pup 'h5.appRowTitle a.fontBlack json{}' | \
+					done < <(echo "$html" | $pup '#primary h5.appRowTitle a.fontBlack json{}' | \
 						jq -r '.[] | select(.text | test("(?i)beta|alpha") | not) | [.text, .href] | @tsv')
 				fi
 			else
-				version_href=$(echo "$html" | $pup 'h5.appRowTitle a.fontBlack json{}' | \
+				version_href=$(echo "$html" | $pup '#primary h5.appRowTitle a.fontBlack json{}' | \
 					jq -r '.[] | select(.text | test("(?i)beta|alpha") | not) | .href' | head -1)
 			fi
 			[[ -n "$version_href" ]] && break
