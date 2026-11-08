@@ -191,13 +191,21 @@ detect_version() {
 
 	  if [[ $(ls "${jar_prefix}"*.jar 2>/dev/null) =~ ${jar_prefix}([0-9]+) ]]; then
 	    list_patches_flags="list-patches --with-packages --with-versions --with-options --patches"
-	    version=$(java -jar "${jar_prefix}"*.jar $list_patches_flags $patch_glob | awk -v pkg="$1" '
+	    local all_compat
+	    all_compat=$(java -jar "${jar_prefix}"*.jar $list_patches_flags $patch_glob 2>/dev/null | awk -v pkg="$1" '
 		  BEGIN { found = 0; printing = 0 }
 		  /^Index:/ { if (printing) exit; found = 0 }
 		  /Package name: / { if ($3 == pkg) found = 1 }
 		  /Compatible versions:/ { if (found) printing = 1; next }
 		  printing && $1 ~ /^[0-9]+\./ { print $1 }
-		' | sort -V | tail -n1)
+		' | sort -V -r)
+	    if [[ -n "$all_compat" ]]; then
+	      detected_versions=()
+	      while IFS= read -r v_line; do
+	        [[ -n "$v_line" ]] && detected_versions+=("$v_line")
+	      done <<< "$all_compat"
+	      version="${detected_versions[0]}"
+	    fi
 	  fi
 	fi
 }
@@ -307,24 +315,64 @@ get_apk() {
 	green_log "[+] Detected version: ${version:-latest} [$pkg_name]"
 	green_log "[+] Downloading $apk_name (type=$pkg_type arch=${arch:-any} dpi=$dpi)"
 
+	local is_beta_pkg=0
+	[[ "$pkg_name" == *"beta"* ]] && is_beta_pkg=1
+
+	local version_candidates=()
+	if [[ ${#detected_versions[@]} -gt 0 ]]; then
+		version_candidates=("${detected_versions[@]}")
+	elif [[ -n "$version" ]]; then
+		version_candidates=("$version")
+	fi
+
 	local version_href=""
+	local first_candidate_href=""
+	local first_candidate_html=""
+	local first_candidate_ver=""
 
-	if [[ ${#example_urls[@]} -gt 0 && -n "$version" ]]; then
-		local example_url slug_ver target_ver
-		for example_url in "${example_urls[@]}"; do
-			version_href="${example_url#$base_url}"
-			slug_ver=$(echo "$version_href" | grep -oP '\d+(-\d+)+' | tail -1)
-			target_ver=$(echo "$version" | tr '.' '-' | grep -oP '\d+(-\d+)+')
-			if [[ -n "$slug_ver" ]]; then
-				version_href="${version_href/$slug_ver/$target_ver}"
-			fi
+	if [[ ${#example_urls[@]} -gt 0 && ${#version_candidates[@]} -gt 0 ]]; then
+		local cand_ver example_url test_href slug_ver target_ver
+		for cand_ver in "${version_candidates[@]}"; do
+			for example_url in "${example_urls[@]}"; do
+				test_href="${example_url#$base_url}"
+				slug_ver=$(echo "$test_href" | grep -oP '\d+(-\d+)+' | tail -1)
+				target_ver=$(echo "$cand_ver" | tr '.' '-' | grep -oP '\d+(-\d+)+')
+				if [[ -n "$slug_ver" ]]; then
+					test_href="${test_href/$slug_ver/$target_ver}"
+				fi
 
-			echo "$base_url$version_href"
-			if _cf_get "$base_url$version_href" && [[ "$html" != *"Page Not Found"* && "$html" != *"404 Whoops"* ]]; then
-				break
-			fi
-			version_href=""
+				echo "$base_url$test_href"
+				if _cf_get "$base_url$test_href" && [[ "$html" != *"Page Not Found"* && "$html" != *"404 Whoops"* ]]; then
+					local is_page_beta=0
+					echo "$html" | grep -qiP '<title>[^<]*\b(beta|alpha)\b' && is_page_beta=1
+
+					if [[ -z "$first_candidate_href" ]]; then
+						first_candidate_href="$test_href"
+						first_candidate_html="$html"
+						first_candidate_ver="$cand_ver"
+					fi
+
+					if [[ "$is_beta_pkg" -eq 1 || "$is_page_beta" -eq 0 ]]; then
+						version_href="$test_href"
+						version="$cand_ver"
+						export version
+						green_log "[+] Selected stable version: $cand_ver"
+						break 2
+					else
+						yellow_log "[!] Version $cand_ver is a beta on APKMirror. Checking previous compatible version..."
+					fi
+				fi
+				test_href=""
+			done
 		done
+
+		if [[ -z "$version_href" && -n "$first_candidate_href" ]]; then
+			yellow_log "[!] No stable compatible version found; falling back to beta $first_candidate_ver"
+			version_href="$first_candidate_href"
+			html="$first_candidate_html"
+			version="$first_candidate_ver"
+			export version
+		fi
 	fi
 
 	if [[ -z "$version_href" ]]; then
@@ -428,8 +476,22 @@ get_apk() {
 	for try_type in "${type_attempts[@]}"; do
 		local filtered_rows
 		filtered_rows=$(echo "$rows" | grep -iP "apkm-badge[^>]*>\s*$try_type\s*<")
-		[[ -n "$arch" ]] && filtered_rows=$(echo "$filtered_rows" | grep -i "$arch")
 		[[ -n "$minver" ]] && filtered_rows=$(echo "$filtered_rows" | grep -i "$minver")
+
+		if [[ -n "$arch" ]]; then
+			local arch_filtered
+			arch_filtered=$(echo "$filtered_rows" | grep -i "$arch")
+			if [[ -z "$arch_filtered" ]]; then
+				if [[ "$arch" == "arm64-v8a" ]]; then
+					arch_filtered=$(echo "$filtered_rows" | grep -i "universal")
+					[[ -n "$arch_filtered" ]] && yellow_log "[!] Arch fallback: arm64-v8a not found, using universal"
+				elif [[ "$arch" == "universal" ]]; then
+					arch_filtered=$(echo "$filtered_rows" | grep -i "arm64-v8a")
+					[[ -n "$arch_filtered" ]] && yellow_log "[!] Arch fallback: universal not found, using arm64-v8a"
+				fi
+			fi
+			filtered_rows="$arch_filtered"
+		fi
 
 		if [[ -n "$dpi" ]]; then
 			local dpi_filtered
