@@ -21,8 +21,12 @@ dl_brave_apk() {
 
 	green_log "[+] Fetching latest Brave $prefix from brave/brave-browser..."
 	local rel_json
-	rel_json=$(wget -qO- "${auth_header[@]}" "https://api.github.com/repos/brave/brave-browser/releases?per_page=30" | \
-		jq --arg prefix "$prefix" 'first(.[] | select(.name | startswith($prefix)))')
+	if [[ "$channel" == "release" ]]; then
+		rel_json=$(wget -qO- "${auth_header[@]}" "https://api.github.com/repos/brave/brave-browser/releases/latest")
+	else
+		rel_json=$(wget -qO- "${auth_header[@]}" "https://api.github.com/repos/brave/brave-browser/releases?per_page=50" | \
+			jq --arg prefix "$prefix" 'first(.[] | select(.name | startswith($prefix)))')
+	fi
 
 	local tag
 	tag=$(echo "$rel_json" | jq -r '.tag_name // empty')
