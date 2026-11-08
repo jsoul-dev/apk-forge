@@ -330,10 +330,15 @@ get_apk() {
 	if [[ -z "$version_href" ]]; then
 		_cf_get "$list_url" || return 1
 
-		version_href=$(echo "$html" | $pup 'h5.appRowTitle a.fontBlack json{}' | \
-			jq -r '.[] | select(.text | test("(?i)beta|alpha") | not) | .href' | head -1)
+		if [[ "$pkg_name" == *"beta"* ]]; then
+			version_href=$(echo "$html" | $pup '#content h5.appRowTitle a.fontBlack json{}' | \
+				jq -r '.[] | select(.text | test("(?i)alpha") | not) | .href' | head -1)
+		else
+			version_href=$(echo "$html" | $pup '#content h5.appRowTitle a.fontBlack json{}' | \
+				jq -r '.[] | select(.text | test("(?i)beta|alpha") | not) | .href' | head -1)
+		fi
 		[[ -z "$version_href" ]] && \
-			version_href=$(echo "$html" | $pup 'h5.appRowTitle a.fontBlack attr{href}' | head -1)
+			version_href=$(echo "$html" | $pup '#content h5.appRowTitle a.fontBlack attr{href}' | head -1)
 
 		if [[ -z "$version_href" ]]; then
 			red_log "[-] Could not find release on APKMirror"
@@ -742,7 +747,15 @@ patch() {
 	if [ -f "./download/$in_apk.apk" ]; then
 		echo "Patching with Morphe"
 		unset CI GITHUB_ACTION GITHUB_ACTIONS GITHUB_ACTOR GITHUB_ENV GITHUB_EVENT_NAME GITHUB_EVENT_PATH GITHUB_HEAD_REF GITHUB_JOB GITHUB_REF GITHUB_REPOSITORY GITHUB_RUN_ID GITHUB_RUN_NUMBER GITHUB_SHA GITHUB_WORKFLOW GITHUB_WORKSPACE RUN_ID RUN_NUMBER
-		eval java -jar morphe-desktop-*.jar patch -p *.mpp --options-file ./src/options/$opt_name.json --out=./release/$out_name.apk$excludePatches$includePatches --keystore=./src/keystore/morphe.keystore --force --continue-on-error ./download/$in_apk.apk
+		local log_tmp
+		log_tmp=$(mktemp)
+		eval java -jar morphe-desktop-*.jar patch -p *.mpp --options-file ./src/options/$opt_name.json --out=./release/$out_name.apk$excludePatches$includePatches --keystore=./src/keystore/morphe.keystore --force --continue-on-error ./download/$in_apk.apk 2>&1 | tee "$log_tmp"
+		if grep -q "Applying 0 patches" "$log_tmp"; then
+			red_log "[-] Error: Morphe applied 0 patches to $in_apk! The input APK might be the wrong package or incompatible."
+			rm -f "$log_tmp" "./release/$out_name.apk"
+			exit 1
+		fi
+		rm -f "$log_tmp"
 		unset version
 		unset lock_version
 		unset excludePatches
@@ -769,7 +782,15 @@ patch_multi() {
 			[ -f "$mpp_file" ] || continue
 			mpp_args="$mpp_args -p \"$mpp_file\"$excludePatches$includePatches"
 		done
-		eval java -jar morphe-desktop-*.jar patch $mpp_args --options-file ./src/options/$opt_name.json --out=./release/$out_name.apk --keystore=./src/keystore/morphe.keystore --force --continue-on-error ./download/$in_apk.apk
+		local log_tmp
+		log_tmp=$(mktemp)
+		eval java -jar morphe-desktop-*.jar patch $mpp_args --options-file ./src/options/$opt_name.json --out=./release/$out_name.apk --keystore=./src/keystore/morphe.keystore --force --continue-on-error ./download/$in_apk.apk 2>&1 | tee "$log_tmp"
+		if grep -q "Applying 0 patches" "$log_tmp"; then
+			red_log "[-] Error: Morphe applied 0 patches to $in_apk! The input APK might be the wrong package or incompatible."
+			rm -f "$log_tmp" "./release/$out_name.apk"
+			exit 1
+		fi
+		rm -f "$log_tmp"
   		unset version
 		unset lock_version
 		unset excludePatches
