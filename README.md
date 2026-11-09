@@ -76,7 +76,7 @@
 | **Facebook** | [SysAdminDoc/Hushfacebook](https://github.com/SysAdminDoc/Hushfacebook) | **Arm64-v8a** | Android 11.0+ | [Download APK](../../releases/download/all/facebook-arm64-v8a-hushfacebook.apk) | Hides sponsored ads & suggested reels/feed clutter, media download support, in-app Hush settings. |
 | **Messenger** | [SysAdminDoc/HushMessenger](https://github.com/SysAdminDoc/HushMessenger) | **Arm64-v8a** | Android 9.0+ | [Download APK](../../releases/download/all/messenger-arm64-v8a-hushmessenger.apk) | Removes chat ads, original quality media transmission, UI decluttering. |
 | **Instagram** | [SysAdminDoc/HushGram](https://github.com/SysAdminDoc/HushGram) | **Arm64-v8a** | Android 9.0+ | [Download APK](../../releases/download/all/instagram-arm64-v8a-hushgram.apk) | Hides sponsored ads and shopping, media saver, ghost viewing options. |
-| **Twitter / X** | [crimera/piko-newx](https://github.com/crimera/piko-newx) | **All Architectures (Universal)** | Android 9.0+ | [Download APK](../../releases/download/all/twitter-universal-piko-newx.apk) | Timeline ad removal, video & GIF downloading, custom theme & font tweaks. |
+| **Twitter / X** | [crimera/piko-newx](https://github.com/crimera/piko-newx) | **All Architectures (Universal)** | Android 12L+ | [Download APK](../../releases/download/all/twitter-universal-piko-newx.apk) | Timeline ad removal, video & GIF downloading, custom theme & font tweaks. |
 | **Pinterest** | [browzomje/browzomje-patches](https://github.com/browzomje/browzomje-patches) | **All Architectures (Universal)** | Android 10+ | [Download APK](../../releases/download/all/pinterest-universal-browzomje.apk) | Disables promoted pins, removes telemetry & tracking. |
 | **Discord** | [revenge-mod/revenge-xposed](https://github.com/revenge-mod/revenge-xposed) | **All Architectures (Universal)** | Android 7.0+ | [Download APK](../../releases/download/all/discord-universal-revenge.apk) | Patched via LSPatch. Plugin support, custom themes, enhanced client functionality. |
 
@@ -106,7 +106,7 @@
 
 | Application | Patch Source | Architecture | Min Android | Direct Download | Notes |
 |:---|:---|:---|:---:|:---:|:---|
-| **Duolingo** | [hxreborn/morphe-patches](https://github.com/hxreborn/morphe-patches) | **All Architectures (Universal)** | Android 10+ | [Download APK](../../releases/download/all/duolingo-universal-hxreborn.apk) | Ad-free learning experience, unlimited hearts, AMOLED theme support. |
+| **Duolingo** | [hxreborn/morphe-patches](https://github.com/hxreborn/morphe-patches) | **All Architectures (Universal)** | Android 12L+ | [Download APK](../../releases/download/all/duolingo-universal-hxreborn.apk) | Ad-free learning experience, unlimited hearts, AMOLED theme support. |
 | **Proton Mail** | [hxreborn/morphe-patches](https://github.com/hxreborn/morphe-patches) | **All Architectures (Universal)** | Android 10+ | [Download APK](../../releases/download/all/protonmail-universal-hxreborn.apk) | Pure black AMOLED dark theme, cleaner layout. |
 | **Proton VPN** | [hxreborn/morphe-patches](https://github.com/hxreborn/morphe-patches) | **All Architectures (Universal)** | Android 8.0+ | [Download APK](../../releases/download/all/protonvpn-universal-hxreborn.apk) | AMOLED dark theme, visual cleanup. |
 | **Google Photos** | [Akash-Sriram/morphe-google-photos](https://github.com/Akash-Sriram/morphe-google-photos) | **Arm64-v8a** | Android 7.0+ | [Download APK](../../releases/download/all/google-photos-arm64-v8a-akash-sriram.apk) | Unlimited backup spoofing, magic editor unlocking. Requires MicroG. |
