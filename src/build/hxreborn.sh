@@ -7,12 +7,12 @@ hxreborn_dl() {
 	[ -f patches-*.mpp ] || dl_gh "morphe-patches" "hxreborn" "latest"
 }
 
-# 1: Duolingo (Universal / All-Architecture for Android 10+)
+# 1: Duolingo (Universal / All-Architecture)
 1() {
 	hxreborn_dl
 	get_patches_key "duolingo-morphe"
 	near_version="1"
-	get_apk "com.duolingo" "duolingo" "bundle" "universal" "120-640dpi" "Android 10+"
+	get_apk "com.duolingo" "duolingo" "bundle" "universal" "120-640dpi"
 	patch "duolingo" "hxreborn" "duolingo-universal-hxreborn"
 }
 
