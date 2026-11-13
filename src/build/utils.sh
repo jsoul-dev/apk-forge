@@ -197,8 +197,11 @@ detect_version() {
 		  /^Index:/ { if (printing) exit; found = 0 }
 		  /Package name: / { if ($3 == pkg) found = 1 }
 		  /Compatible versions:/ { if (found) printing = 1; next }
-		  printing && $1 ~ /^[0-9]+\./ { print $1 }
-		' | sort -V -r)
+		  printing && $1 ~ /^[0-9]+\./ {
+		    sub(/:$/, "", $1)
+		    print $1
+		  }
+		' | sort -u -V -r)
 	    if [[ -n "$all_compat" ]]; then
 	      detected_versions=()
 	      while IFS= read -r v_line; do
@@ -344,7 +347,7 @@ get_apk() {
 				echo "$base_url$test_href"
 				if _cf_get "$base_url$test_href" && [[ "$html" != *"Page Not Found"* && "$html" != *"404 Whoops"* ]]; then
 					local is_page_beta=0
-					echo "$html" | grep -qiP '<title>[^<]*\b(beta|alpha)\b' && is_page_beta=1
+					grep -qiP '<title>[^<]*\b(beta|alpha)\b' <<< "$html" && is_page_beta=1
 
 					if [[ -z "$first_candidate_href" ]]; then
 						first_candidate_href="$test_href"
@@ -360,6 +363,7 @@ get_apk() {
 						break 2
 					else
 						yellow_log "[!] Version $cand_ver is a beta on APKMirror. Checking previous compatible version..."
+						break
 					fi
 				fi
 				test_href=""
@@ -558,30 +562,72 @@ get_apk() {
 	fi
 	dl_btn_href=$(echo "$dl_btn_href" | sed 's/&amp;/\&/g')
 
-	_cf_get "$base_url$dl_btn_href" || return 1
+	local dl_url=""
+	local dl_success=false
 
-	local final_href
-	final_href=$(echo "$html" | $pup 'a#download-link attr{href}' | head -1)
-	[[ -z "$final_href" ]] && \
-		final_href=$(echo "$html" | grep -oP 'id="download-link"[^>]*href="\K[^"]+' | head -1)
+	for dl_attempt in 1 2 3; do
+		if [[ $dl_attempt -gt 1 ]]; then
+			yellow_log "[!] Download attempt $dl_attempt/3: Refreshing download token..."
+			sleep 3
+		fi
 
-	if [[ -z "$final_href" ]]; then
-		red_log "[-] Could not find final download link"
-		return 1
-	fi
-	final_href=$(echo "$final_href" | sed 's/&amp;/\&/g')
+		_cf_get "$base_url$dl_btn_href" || continue
 
-	echo "$base_url$final_href"
-	local cookie_args=()
-	[[ -n "$FS_COOKIES" ]] && cookie_args=(--header "Cookie: $FS_COOKIES")
-	wget -nv -O "./download/$base_apk" \
-		--header="User-Agent: $user_agent" \
-		--referer="$base_url$dl_btn_href" \
-		"${cookie_args[@]}" \
-		--timeout=120 \
-		"$base_url$final_href" || rm -f "./download/$base_apk"
+		local final_href
+		final_href=$(echo "$html" | $pup 'a#download-link attr{href}' | head -1)
+		[[ -z "$final_href" ]] && \
+			final_href=$(echo "$html" | grep -oP 'id="download-link"[^>]*href="\K[^"]+' | head -1)
 
-	if [[ -s "./download/$base_apk" ]]; then
+		if [[ -z "$final_href" ]]; then
+			yellow_log "[-] Could not find final download link on attempt $dl_attempt"
+			continue
+		fi
+		final_href=$(echo "$final_href" | sed 's/&amp;/\&/g')
+
+		if [[ "$final_href" == http* ]]; then
+			dl_url="$final_href"
+		else
+			dl_url="$base_url$final_href"
+		fi
+
+		echo "$dl_url"
+		local cookie_args=()
+		[[ -n "$FS_COOKIES" ]] && cookie_args=(--header "Cookie: $FS_COOKIES")
+
+		# Attempt 1: curl with complete browser headers
+		curl -fsSL \
+			-A "$user_agent" \
+			-e "$base_url$dl_btn_href" \
+			"${cookie_args[@]}" \
+			-H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" \
+			-H "Accept-Language: en-US,en;q=0.9" \
+			-H "Sec-Fetch-Dest: document" \
+			-H "Sec-Fetch-Mode: navigate" \
+			-H "Sec-Fetch-Site: same-origin" \
+			-H "Upgrade-Insecure-Requests: 1" \
+			--connect-timeout 30 \
+			--max-time 300 \
+			-o "./download/$base_apk" \
+			"$dl_url" || rm -f "./download/$base_apk"
+
+		# Attempt 2: fallback to wget if curl failed or produced empty file
+		if [[ ! -s "./download/$base_apk" ]]; then
+			rm -f "./download/$base_apk"
+			wget -nv -O "./download/$base_apk" \
+				--header="User-Agent: $user_agent" \
+				--referer="$base_url$dl_btn_href" \
+				"${cookie_args[@]}" \
+				--timeout=120 \
+				"$dl_url" || rm -f "./download/$base_apk"
+		fi
+
+		if [[ -s "./download/$base_apk" ]]; then
+			dl_success=true
+			break
+		fi
+	done
+
+	if [[ "$dl_success" == true ]]; then
 		green_log "[+] Successfully downloaded $apk_name"
 	else
 		rm -f "./download/$base_apk"
